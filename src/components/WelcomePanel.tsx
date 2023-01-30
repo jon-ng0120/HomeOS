@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Weather from './Weather';
 import classes from './WelcomePanel.module.scss';
 
 type DateTime = {
@@ -33,8 +34,9 @@ const WelcomePanel = () => {
   return (
     <div className={classes.welcome_panel_container}>
       <h1>Welcome Jon</h1>
-      <p>{dateTime.date}</p>
-      <p>{dateTime.time}</p>
+      <p className={classes.time}>{dateTime.time}</p>
+      <p className={classes.date}>{dateTime.date}</p>
+      <Weather />
     </div>
   );
 };
