@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import jwt_decode from 'jwt-decode';
 import classes from './CalendarEvents.module.scss';
+import CalendarEventsItem from './CalendarEventsItem';
 
 declare const window: any;
 // declare const google: any;
@@ -92,11 +93,7 @@ const CalendarEvents = () => {
       <button onClick={checkToken}>Click</button>
       {events?.map((event) => {
         return (
-          <>
-            <p>{event.summary}</p>
-            <p>{event.start.date}</p>
-            <p>{event.start.dateTime}</p>
-          </>
+          <CalendarEventsItem summary={event.summary} date={event.start} />
         );
       })}
     </div>

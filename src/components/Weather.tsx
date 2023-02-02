@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { roundTemparatures } from '../utilities/weatherUtilities';
+import { roundTemperatures } from '../utilities/utilities';
 import classes from './Weather.module.scss';
 
 type fetchWeatherProps = {
@@ -61,7 +61,7 @@ const Weather = () => {
           />
           <p>{weather.weather[0].main}</p>
           <p className={classes.temperature}>
-            {roundTemparatures(parseInt(weather.temperature))} &deg;
+            {roundTemperatures(parseInt(weather.temperature))} &deg;
           </p>
         </div>
       )}
