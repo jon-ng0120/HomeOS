@@ -1,16 +1,23 @@
 import React from 'react';
+import { formatDate } from '../utilities/utilities';
 import classes from './CalendarEventsItem.module.scss';
 
 type CalendarEventsItemProps = {
   summary: string;
-  date: { date: string; dateTime: string };
+  start: string;
+  end: string;
 };
 
-const CalendarEventsItem = ({ summary, date }: CalendarEventsItemProps) => {
+const CalendarEventsItem = ({
+  summary,
+  start,
+  end,
+}: CalendarEventsItemProps) => {
   return (
     <div className={classes.CalendarEventsItem_container}>
       <p>{summary}</p>
-      <p>{date.date || date.dateTime}</p>
+      {/* <p>{formatDate(start)}</p> */}
+      <p>{end}</p>
     </div>
   );
 };
