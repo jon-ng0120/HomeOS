@@ -72,6 +72,8 @@ const CalendarEvents = () => {
     const eventDates = events.map((event: { start: string }) => {
       return formatDate(event.start);
     });
+    console.log(eventDates);
+
     const uniqueDates: string[] = [...new Set(eventDates)] as string[];
     setUniqueEventDates(uniqueDates);
 
@@ -101,12 +103,25 @@ const CalendarEvents = () => {
     <div className={classes.calendar_events_container}>
       <button onClick={checkToken}>Click</button>
       {uniqueEventDates?.map((date) => {
-        {
-          /* Use filter for each date to create date event items*/
-        }
-        return <p>{date}</p>;
+        const matchingEvents = events?.filter(
+          (event: EventProp) => formatDate(event.start) == date
+        );
+        return (
+          <>
+            <h2>{date}</h2>
+            {matchingEvents?.map((event) => {
+              return (
+                <CalendarEventsItem
+                  summary={event.summary}
+                  start={event.start}
+                  end={event.end}
+                />
+              );
+            })}
+          </>
+        );
       })}
-
+      {/* 
       {events?.map((event) => {
         return (
           <CalendarEventsItem
@@ -115,7 +130,7 @@ const CalendarEvents = () => {
             end={event.end}
           />
         );
-      })}
+      })} */}
     </div>
   );
 };
