@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate } from '../utilities/utilities';
+import { formatDate, formatTime } from '../utilities/utilities';
 import classes from './CalendarEventsItem.module.scss';
 
 type CalendarEventsItemProps = {
@@ -13,11 +13,17 @@ const CalendarEventsItem = ({
   start,
   end,
 }: CalendarEventsItemProps) => {
+  const startTime = formatTime(start);
+  const endTime = formatTime(end);
+
   return (
-    <div className={classes.CalendarEventsItem_container}>
-      <p>{summary}</p>
-      {/* <p>{formatDate(start)}</p> */}
-      <p>{end}</p>
+    <div className={classes.calendarEventsItem_container}>
+      <p className={classes.summary}>{summary}</p>
+      <p className={classes.time}>
+        {startTime === endTime
+          ? 'All Day'
+          : `${formatTime(start)} \u2013 ${formatTime(end)}`}
+      </p>
     </div>
   );
 };

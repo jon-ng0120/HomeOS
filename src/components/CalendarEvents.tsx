@@ -10,12 +10,14 @@ declare const window: any;
 type TKeys = 'date' | 'dateTime';
 
 type EventsListProps = {
+  id: string;
   summary: string;
   start: { [key in TKeys]: string };
   end: { [key in TKeys]: string };
 };
 
 type EventProp = {
+  id: string;
   summary: string;
   start: string;
   end: string;
@@ -62,6 +64,7 @@ const CalendarEvents = () => {
 
     const events = data.items.map((event: EventsListProps) => {
       const body = {
+        id: event.id,
         summary: event.summary,
         start: event.start.dateTime || event.start.date,
         end: event.end.dateTime || event.end.date,
@@ -107,30 +110,23 @@ const CalendarEvents = () => {
           (event: EventProp) => formatDate(event.start) == date
         );
         return (
-          <>
-            <h2>{date}</h2>
+          <div key={date}>
+            <p className={classes.date}>
+              {date == new Date().toDateString() ? 'Today' : date}
+            </p>
             {matchingEvents?.map((event) => {
               return (
                 <CalendarEventsItem
+                  key={event.id}
                   summary={event.summary}
                   start={event.start}
                   end={event.end}
                 />
               );
             })}
-          </>
+          </div>
         );
       })}
-      {/* 
-      {events?.map((event) => {
-        return (
-          <CalendarEventsItem
-            summary={event.summary}
-            start={event.start}
-            end={event.end}
-          />
-        );
-      })} */}
     </div>
   );
 };
