@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import jwt_decode from 'jwt-decode';
 import classes from './CalendarEvents.module.scss';
 import CalendarEventsItem from './CalendarEventsItem';
 import { formatDate } from '../utilities/utilities';
+import FirebaseContext from '../store/firebase-context';
 
 declare const window: any;
 // declare const google: any;
@@ -28,6 +29,8 @@ const CalendarEvents = () => {
   const [events, setEvents] = useState<EventProp[]>();
   const [uniqueEventDates, setUniqueEventDates] = useState<string[]>();
 
+  const firebaseProviderCtx = useContext(FirebaseContext);
+
   const CLIENT_ID =
     '574368218024-73hje8pjskqgib12tfmd68s8tq5nnvss.apps.googleusercontent.com';
 
@@ -37,7 +40,9 @@ const CalendarEvents = () => {
     tokenClient.requestAccessToken();
   };
 
-  const getEvents = async (token: any) => {
+  const getEvents = async () => {
+    const token = firebaseProviderCtx.accessToken;
+
     const date = new Date();
     const formattedDate = date.toISOString();
     const nextMonth = new Date(
@@ -82,29 +87,32 @@ const CalendarEvents = () => {
 
     setEvents(events);
   };
-
   useEffect(() => {
-    /* global google */
-    const google = window.google;
-
-    setTokenClient(
-      google.accounts.oauth2.initTokenClient({
-        client_id: CLIENT_ID,
-        scope: SCOPES,
-        prompt: '',
-        callback: (tokenResponse: any) => {
-          if (tokenResponse && tokenResponse.access_token) {
-            getEvents(tokenResponse.access_token);
-          }
-        },
-      })
-    );
-    // google.accounts.id.prompt();
+    getEvents();
   }, []);
+
+  // useEffect(() => {
+  //   /* global google */
+  //   const google = window.google;
+
+  //   setTokenClient(
+  //     google.accounts.oauth2.initTokenClient({
+  //       client_id: CLIENT_ID,
+  //       scope: SCOPES,
+  //       callback: (tokenResponse: any) => {
+  //         if (tokenResponse && tokenResponse.access_token) {
+  //           getEvents(tokenResponse.access_token);
+  //         }
+  //       },
+  //     })
+  //   );
+  //   // google.accounts.id.prompt();
+  // }, []);
 
   return (
     <div className={classes.calendar_events_container}>
-      <button onClick={checkToken}>Click</button>
+      {/* <button onClick={checkToken}>Click</button> */}
+      <button onClick={getEvents}>Click</button>
       {uniqueEventDates?.map((date) => {
         const matchingEvents = events?.filter(
           (event: EventProp) => formatDate(event.start) == date
