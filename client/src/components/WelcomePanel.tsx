@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Weather from './Weather';
 import classes from './WelcomePanel.module.scss';
+import FirebaseContext from '../store/firebase-context';
 
 type DateTime = {
   date: string;
@@ -9,6 +10,8 @@ type DateTime = {
 
 const WelcomePanel = () => {
   const [dateTime, setDateTime] = useState<DateTime>({} as DateTime);
+
+  const firebaseProviderCtx = useContext(FirebaseContext);
 
   const handleFormattingDateTime = () => {
     const date = new Date();
@@ -24,6 +27,7 @@ const WelcomePanel = () => {
     const formattedDate = `${dayOfWeek}, ${month} ${day} ${year}`;
     setDateTime({ date: formattedDate, time });
   };
+
   useEffect(() => {
     handleFormattingDateTime();
     const interval = setInterval(() => {
@@ -31,6 +35,7 @@ const WelcomePanel = () => {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
+
   return (
     <div className={classes.welcome_panel_container}>
       <h1>Welcome Jon</h1>

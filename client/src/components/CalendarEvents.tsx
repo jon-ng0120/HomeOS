@@ -4,9 +4,7 @@ import classes from './CalendarEvents.module.scss';
 import CalendarEventsItem from './CalendarEventsItem';
 import { formatDate } from '../utilities/utilities';
 import FirebaseContext from '../store/firebase-context';
-
-declare const window: any;
-// declare const google: any;
+import { getAuth } from 'firebase/auth';
 
 type TKeys = 'date' | 'dateTime';
 
@@ -28,6 +26,7 @@ const CalendarEvents = () => {
   const [tokenClient, setTokenClient] = useState<any>({});
   const [events, setEvents] = useState<EventProp[]>();
   const [uniqueEventDates, setUniqueEventDates] = useState<string[]>();
+  // const [token, setToken] = useState<any>('fake token');
 
   const firebaseProviderCtx = useContext(FirebaseContext);
 
@@ -42,6 +41,10 @@ const CalendarEvents = () => {
 
   const getEvents = async () => {
     const token = firebaseProviderCtx.accessToken;
+    console.log(token);
+
+    const auth = getAuth();
+    const user: any = auth.currentUser;
 
     const date = new Date();
     const formattedDate = date.toISOString();
@@ -60,12 +63,11 @@ const CalendarEvents = () => {
       {
         method: 'GET',
         headers: {
-          Authorization: 'Bearer ' + token, // Access token for google
+          Authorization: `Bearer ${token}`, // Access token for google
         },
       }
     );
     const data = await response.json();
-    console.log(data);
 
     const events = data.items.map((event: EventsListProps) => {
       const body = {
@@ -76,11 +78,10 @@ const CalendarEvents = () => {
       };
       return body;
     });
-    console.log(events);
+
     const eventDates = events.map((event: { start: string }) => {
       return formatDate(event.start);
     });
-    console.log(eventDates);
 
     const uniqueDates: string[] = [...new Set(eventDates)] as string[];
     setUniqueEventDates(uniqueDates);
