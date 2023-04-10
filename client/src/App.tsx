@@ -38,45 +38,65 @@ function App() {
   };
 
   useEffect(() => {
-    // onAuthStateChanged(auth, async (user) => {
-    //   const idToken = await user?.getIdToken();
-    //   firebaseProviderCtx.setAccessToken(idToken);
-    //   user
-    //     ? firebaseProviderCtx.setIsLoggedIn(true)
-    //     : firebaseProviderCtx.setIsLoggedIn(false);
-    // });
-    const query = new URLSearchParams(window.location.search);
-    const accessToken = query.get('accessToken');
-    const refreshToken = query.get('refreshToken');
-    console.log('Access', accessToken);
-    console.log('Refresh', refreshToken);
-    if (accessToken !== null) {
-      firebaseProviderCtx.setIsLoggedIn(true);
-      firebaseProviderCtx.setAccessToken(accessToken);
+    const setAccessToken = async (googleId: string) => {
+      getValidTokenFromServer(googleId).then(({ accessToken }) =>
+        firebaseProviderCtx.accessTokenHandler(accessToken)
+      );
+    };
+    if (getGoogleIdLocalStorage() === null) {
+      handleGoogleIdFromQueryParams();
     }
-    firebaseProviderCtx.setRefreshToken(refreshToken);
+    const googleId: any = getGoogleIdLocalStorage();
+    if (googleId !== null) {
+      setAccessToken(googleId);
+    }
   }, []);
 
-  const createGoogleAuthLink = async () => {
-    // try {
-    const request = await fetch('http://localhost:8080/createAuthLink', {
-      method: 'POST',
-    });
-    const response = await request.json();
-    console.log(response);
-    window.location.href = response.url;
+  useEffect(() => {
+    if (firebaseProviderCtx.accessToken !== null) {
+      firebaseProviderCtx.setIsLoggedIn(true);
+    }
+  }, [firebaseProviderCtx.accessToken]);
 
-    // } catch (error) {
-    //   console.log("App.js 12 | error", error);
-    //   throw new Error("Issue with Login", error.message);
-    // }
-    // firebaseProviderCtx.setIsLoggedIn(true);
-    // firebaseProviderCtx.setAccessToken(credential?.accessToken);
+  const handleGoogleIdFromQueryParams = () => {
+    const query = new URLSearchParams(window.location.search);
+    const googleId: any = query.get('id');
+    if (googleId) {
+      storeGoogleIdLocalStorage(googleId);
+    }
   };
 
-  const getValidTokenFromServer = async (refreshToken: any) => {
+  const getGoogleIdLocalStorage = () => {
+    return localStorage.getItem('googleId');
+  };
+
+  const storeGoogleIdLocalStorage = (googleId: string) => {
+    localStorage.setItem('googleId', googleId);
+  };
+
+  const signInHandler = async () => {
+    try {
+      await createGoogleAuthLink();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createGoogleAuthLink = async () => {
+    try {
+      const request = await fetch('http://localhost:8080/createAuthLink', {
+        method: 'POST',
+      });
+      const response = await request.json();
+      console.log('Resposne', response);
+      window.location.href = response.url;
+    } catch (error) {
+      console.log('ERROR', error);
+    }
+  };
+
+  const getValidTokenFromServer = async (googleId: any) => {
     // get new token from server with refresh token
-    console.log(refreshToken);
     try {
       const request = await fetch('http://localhost:8080/getValidToken', {
         method: 'POST',
@@ -84,10 +104,11 @@ function App() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          refreshToken: refreshToken,
+          googleId,
         }),
       });
       const token = await request.json();
+      console.log(token);
       return token;
     } catch (error) {
       console.log(error);
@@ -112,7 +133,12 @@ function App() {
       </div>
     );
   } else {
-    return <button onClick={createGoogleAuthLink}>Log In</button>;
+    return <button onClick={signInHandler}>Log In</button>;
+    // return (
+    //   <button onClick={() => getValidTokenFromServer('112721205527643947960')}>
+    //     Get Token
+    //   </button>
+    // );
   }
 }
 

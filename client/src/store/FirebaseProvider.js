@@ -16,14 +16,21 @@ const FirebaseProvider = (props) => {
   initializeApp(firebaseConfig);
 
   const [isLoggedIn, setIsLoggedIn] = useState();
-  const [accessToken, setAccessToken] = useState();
+  const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState();
+
+  const accessTokenHandler = (token) => {
+    setAccessToken(token);
+    console.log(token);
+    console.log(accessToken);
+  };
 
   const firebaseContext = {
     isLoggedIn,
     setIsLoggedIn,
     accessToken,
     setAccessToken,
+    accessTokenHandler,
     refreshToken,
     setRefreshToken,
   };

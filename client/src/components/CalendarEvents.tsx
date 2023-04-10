@@ -41,10 +41,8 @@ const CalendarEvents = () => {
 
   const getEvents = async () => {
     const token = firebaseProviderCtx.accessToken;
+    console.log('TOOOKEN', token);
     console.log(token);
-
-    const auth = getAuth();
-    const user: any = auth.currentUser;
 
     const date = new Date();
     const formattedDate = date.toISOString();
