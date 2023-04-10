@@ -3,44 +3,14 @@ import './App.scss';
 import CalendarEvents from './components/CalendarEvents';
 import WelcomePanel from './components/WelcomePanel';
 import FirebaseContext from './store/firebase-context';
-import {
-  signOut,
-  getAuth,
-  signInWithPopup,
-  GoogleAuthProvider,
-  onAuthStateChanged,
-} from 'firebase/auth';
-import { log } from 'console';
 
 function App() {
   const firebaseProviderCtx = useContext(FirebaseContext);
-  const auth = getAuth();
-  const googleSignIn = async () => {
-    // await setPersistence(auth, browserLocalPersistence);
-    const provider = new GoogleAuthProvider();
-    provider.addScope('https://www.googleapis.com/auth/calendar.readonly');
-
-    const result = await signInWithPopup(auth, provider);
-
-    firebaseProviderCtx.setIsLoggedIn(true);
-    // const credential = await GoogleAuthProvider.credentialFromResult(result);
-    // console.log(result);
-
-    // firebaseProviderCtx.setAccessToken(credential?.accessToken);
-  };
-
-  const signOutHandler = async () => {
-    try {
-      await signOut(auth);
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   useEffect(() => {
     const setAccessToken = async (googleId: string) => {
       getValidTokenFromServer(googleId).then(({ accessToken }) =>
-        firebaseProviderCtx.accessTokenHandler(accessToken)
+        firebaseProviderCtx.setAccessToken(accessToken)
       );
     };
     if (getGoogleIdLocalStorage() === null) {
@@ -128,17 +98,10 @@ function App() {
       <div className="App">
         <WelcomePanel />
         <CalendarEvents />
-        <button onClick={signOutHandler}>Sign out</button>
-        <button onClick={getToken}>Click</button>
       </div>
     );
   } else {
     return <button onClick={signInHandler}>Log In</button>;
-    // return (
-    //   <button onClick={() => getValidTokenFromServer('112721205527643947960')}>
-    //     Get Token
-    //   </button>
-    // );
   }
 }
 

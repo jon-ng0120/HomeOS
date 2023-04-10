@@ -92,8 +92,6 @@ app.post('/getValidToken', async (req, res) => {
         }
       );
       const data = await request.json();
-      console.log(data);
-
       res.json({
         accessToken: data.access_token,
       });

@@ -23,26 +23,13 @@ type EventProp = {
 };
 
 const CalendarEvents = () => {
-  const [tokenClient, setTokenClient] = useState<any>({});
   const [events, setEvents] = useState<EventProp[]>();
   const [uniqueEventDates, setUniqueEventDates] = useState<string[]>();
-  // const [token, setToken] = useState<any>('fake token');
 
   const firebaseProviderCtx = useContext(FirebaseContext);
 
-  const CLIENT_ID =
-    '574368218024-73hje8pjskqgib12tfmd68s8tq5nnvss.apps.googleusercontent.com';
-
-  const SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
-
-  const checkToken = () => {
-    tokenClient.requestAccessToken();
-  };
-
   const getEvents = async () => {
     const token = firebaseProviderCtx.accessToken;
-    console.log('TOOOKEN', token);
-    console.log(token);
 
     const date = new Date();
     const formattedDate = date.toISOString();
@@ -90,28 +77,8 @@ const CalendarEvents = () => {
     getEvents();
   }, []);
 
-  // useEffect(() => {
-  //   /* global google */
-  //   const google = window.google;
-
-  //   setTokenClient(
-  //     google.accounts.oauth2.initTokenClient({
-  //       client_id: CLIENT_ID,
-  //       scope: SCOPES,
-  //       callback: (tokenResponse: any) => {
-  //         if (tokenResponse && tokenResponse.access_token) {
-  //           getEvents(tokenResponse.access_token);
-  //         }
-  //       },
-  //     })
-  //   );
-  //   // google.accounts.id.prompt();
-  // }, []);
-
   return (
     <div className={classes.calendar_events_container}>
-      {/* <button onClick={checkToken}>Click</button> */}
-      <button onClick={getEvents}>Click</button>
       {uniqueEventDates?.map((date) => {
         const matchingEvents = events?.filter(
           (event: EventProp) => formatDate(event.start) == date
