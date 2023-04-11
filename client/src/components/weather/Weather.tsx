@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { roundTemperatures } from '../utilities/utilities';
+import { roundTemperatures } from '../../utilities/utilities';
 import classes from './Weather.module.scss';
 
 type fetchWeatherProps = {

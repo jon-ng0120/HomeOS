@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
-import Weather from './Weather';
+import Weather from '../weather/Weather';
 import classes from './WelcomePanel.module.scss';
-import FirebaseContext from '../store/firebase-context';
 
 type DateTime = {
   date: string;
@@ -10,8 +9,6 @@ type DateTime = {
 
 const WelcomePanel = () => {
   const [dateTime, setDateTime] = useState<DateTime>({} as DateTime);
-
-  const firebaseProviderCtx = useContext(FirebaseContext);
 
   const handleFormattingDateTime = () => {
     const date = new Date();

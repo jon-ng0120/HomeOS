@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate, formatTime } from '../utilities/utilities';
+import { formatDate, formatTime } from '../../utilities/utilities';
 import classes from './CalendarEventsItem.module.scss';
 
 type CalendarEventsItemProps = {

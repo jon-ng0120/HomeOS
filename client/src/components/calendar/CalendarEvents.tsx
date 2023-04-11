@@ -1,10 +1,8 @@
 import { useEffect, useState, useContext } from 'react';
-import jwt_decode from 'jwt-decode';
 import classes from './CalendarEvents.module.scss';
 import CalendarEventsItem from './CalendarEventsItem';
-import { formatDate } from '../utilities/utilities';
-import FirebaseContext from '../store/firebase-context';
-import { getAuth } from 'firebase/auth';
+import { formatDate } from '../../utilities/utilities';
+import AuthContext from '../../store/auth-context';
 
 type TKeys = 'date' | 'dateTime';
 
@@ -26,10 +24,10 @@ const CalendarEvents = () => {
   const [events, setEvents] = useState<EventProp[]>();
   const [uniqueEventDates, setUniqueEventDates] = useState<string[]>();
 
-  const firebaseProviderCtx = useContext(FirebaseContext);
+  const authProviderCtx = useContext(AuthContext);
 
   const getEvents = async () => {
-    const token = firebaseProviderCtx.accessToken;
+    const token = authProviderCtx.accessToken;
 
     const date = new Date();
     const formattedDate = date.toISOString();

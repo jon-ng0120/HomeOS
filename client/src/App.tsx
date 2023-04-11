@@ -1,16 +1,17 @@
 import { useContext, useEffect } from 'react';
 import './App.scss';
-import CalendarEvents from './components/CalendarEvents';
-import WelcomePanel from './components/WelcomePanel';
-import FirebaseContext from './store/firebase-context';
+import CalendarEvents from './components/calendar/CalendarEvents';
+import WelcomePanel from './components/welcome/WelcomePanel';
+import AuthContext from './store/auth-context';
+import LogOut from './components/logout/LogOut';
 
 function App() {
-  const firebaseProviderCtx = useContext(FirebaseContext);
+  const authProviderCtx = useContext(AuthContext);
 
   useEffect(() => {
     const setAccessToken = async (googleId: string) => {
       getValidTokenFromServer(googleId).then(({ accessToken }) =>
-        firebaseProviderCtx.setAccessToken(accessToken)
+        authProviderCtx.setAccessToken(accessToken)
       );
     };
     if (getGoogleIdLocalStorage() === null) {
@@ -23,10 +24,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (firebaseProviderCtx.accessToken !== null) {
-      firebaseProviderCtx.setIsLoggedIn(true);
+    if (authProviderCtx.accessToken !== null) {
+      authProviderCtx.setIsLoggedIn(true);
     }
-  }, [firebaseProviderCtx.accessToken]);
+  }, [authProviderCtx.accessToken]);
 
   const handleGoogleIdFromQueryParams = () => {
     const query = new URLSearchParams(window.location.search);
@@ -85,19 +86,12 @@ function App() {
     }
   };
 
-  const getToken = async () => {
-    const token = await getValidTokenFromServer(
-      firebaseProviderCtx.refreshToken
-    );
-    firebaseProviderCtx.setAccessToken(token.accessToken);
-    console.log('Access', firebaseProviderCtx.accessToken);
-  };
-
-  if (firebaseProviderCtx.isLoggedIn) {
+  if (authProviderCtx.isLoggedIn) {
     return (
       <div className="App">
         <WelcomePanel />
         <CalendarEvents />
+        <LogOut />
       </div>
     );
   } else {

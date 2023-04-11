@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import FirebaseProvider from './store/FirebaseProvider';
+import AuthProvider from './store/AuthProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <FirebaseProvider>
+  <AuthProvider>
     <App />
-  </FirebaseProvider>
+  </AuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
