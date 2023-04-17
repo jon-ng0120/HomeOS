@@ -18,7 +18,7 @@ const LogOut = () => {
     return url.split('?')[0];
   };
 
-  return <button onClick={logOutHandler}>Sign Out</button>;
+  return <p onClick={logOutHandler}>Sign Out</p>;
 };
 
 export default LogOut;

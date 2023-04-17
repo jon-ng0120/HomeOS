@@ -3,23 +3,30 @@ import './App.scss';
 import CalendarEvents from './components/calendar/CalendarEvents';
 import WelcomePanel from './components/welcome/WelcomePanel';
 import AuthContext from './store/auth-context';
-import LogOut from './components/logout/LogOut';
+import Profile from './components/profile/Profile';
 
 function App() {
   const authProviderCtx = useContext(AuthContext);
+  const { openProfile, setOpenProfile } = authProviderCtx;
 
   useEffect(() => {
-    const setAccessToken = async (googleId: string) => {
-      getValidTokenFromServer(googleId).then(({ accessToken }) =>
-        authProviderCtx.setAccessToken(accessToken)
-      );
+    const setUserInfo = async (googleId: string) => {
+      getResponseFromServer(googleId).then((res) => {
+        console.log(res);
+        authProviderCtx.setAccessToken(res.accessToken);
+        authProviderCtx.setProfileInfo({
+          email: res.email,
+          picture: res.picture,
+          username: res.username,
+        });
+      });
     };
     if (getGoogleIdLocalStorage() === null) {
       handleGoogleIdFromQueryParams();
     }
     const googleId: any = getGoogleIdLocalStorage();
     if (googleId !== null) {
-      setAccessToken(googleId);
+      setUserInfo(googleId);
     }
   }, []);
 
@@ -66,7 +73,7 @@ function App() {
     }
   };
 
-  const getValidTokenFromServer = async (googleId: any) => {
+  const getResponseFromServer = async (googleId: any) => {
     // get new token from server with refresh token
     try {
       const request = await fetch('http://localhost:8080/getValidToken', {
@@ -78,9 +85,8 @@ function App() {
           googleId,
         }),
       });
-      const token = await request.json();
-      console.log(token);
-      return token;
+      const response = await request.json();
+      return response;
     } catch (error) {
       console.log(error);
     }
@@ -89,9 +95,15 @@ function App() {
   if (authProviderCtx.isLoggedIn) {
     return (
       <div className="App">
+        <Profile />
         <WelcomePanel />
         <CalendarEvents />
-        <LogOut />
+        {openProfile && (
+          <div
+            className="background"
+            onClick={() => setOpenProfile(!openProfile)}
+          />
+        )}
       </div>
     );
   } else {
