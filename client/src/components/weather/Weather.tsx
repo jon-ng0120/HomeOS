@@ -55,14 +55,17 @@ const Weather = () => {
       {weather && (
         <div className={classes.weather_container}>
           <p>{weather.city}</p>
-
-          <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
-          />
-          <p>{weather.weather[0].main}</p>
-          <p className={classes.temperature}>
-            {roundTemperatures(parseInt(weather.temperature))} &deg;
-          </p>
+          <div className={classes.weather_info}>
+            <img
+              src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
+            />
+            <div className={classes.weather_details}>
+              <p>{weather.weather[0].main}</p>
+              <p className={classes.temperature}>
+                {roundTemperatures(parseInt(weather.temperature))} &deg;
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </>
