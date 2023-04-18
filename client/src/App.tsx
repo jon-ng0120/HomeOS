@@ -4,6 +4,7 @@ import CalendarEvents from './components/calendar/CalendarEvents';
 import WelcomePanel from './components/welcome/WelcomePanel';
 import AuthContext from './store/auth-context';
 import Profile from './components/profile/Profile';
+import WebsitesContainer from './components/websites/WebsitesContainer';
 
 function App() {
   const authProviderCtx = useContext(AuthContext);
@@ -98,6 +99,7 @@ function App() {
         <Profile />
         <WelcomePanel />
         <CalendarEvents />
+        <WebsitesContainer />
         {openProfile && (
           <div
             className="background"
