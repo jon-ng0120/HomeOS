@@ -45,6 +45,7 @@ app.get('/handleGoogleRedirect', async (req, res) => {
   const authorizationCode = req.query.code;
   const { tokens } = await oauth2Client.getToken(authorizationCode);
   oauth2Client.setCredentials(tokens);
+  console.log(tokens);
 
   // get google user profile info
   const oauth2 = google.oauth2({
@@ -94,6 +95,9 @@ app.post('/getValidToken', async (req, res) => {
       const data = await request.json();
       res.json({
         accessToken: data.access_token,
+        email: currentUser.email,
+        username: currentUser.name,
+        picture: currentUser.picture,
       });
     }
   } catch (error) {
