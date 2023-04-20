@@ -1,0 +1,37 @@
+.add_website_container {
+  background-color: #353535b8;
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+
+  form {
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      input[type='text'] {
+        padding: 0.5rem 1rem;
+        font-size: 1.6rem;
+        border-radius: 0.25rem;
+        border: none;
+        border: 2px solid transparent;
+
+        &:focus {
+          outline: none !important;
+          border: 2px solid #bb86fc;
+        }
+      }
+    }
+    .form_actions {
+      flex-direction: row;
+      justify-content: end;
+      gap: 1rem;
+
+      button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
