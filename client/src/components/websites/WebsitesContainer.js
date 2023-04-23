@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import Website from './Website';
+import AddWebsiteModal from './AddWebsiteModal';
 import classes from './WebsiteContainer.module.scss';
 
 const WebsitesContainer = () => {
@@ -74,11 +76,18 @@ const WebsitesContainer = () => {
       icon: 'https://api.faviconkit.com/reddit.com/144',
     },
   ];
+
+  const [openModal, setOpenModal] = useState(false);
+
   return (
     <div className={classes.website_container}>
       {websites.map((website) => {
         return <Website website={website} />;
       })}
+      <div onClick={() => setOpenModal(true)}>
+        <span className={`material-icons ${classes.modal}`}>add</span>
+      </div>
+      {openModal && <AddWebsiteModal closeModal={() => setOpenModal(false)} />}
     </div>
   );
 };

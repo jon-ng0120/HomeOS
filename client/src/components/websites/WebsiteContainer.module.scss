@@ -4,3 +4,13 @@
   justify-content: center;
   grid-template-columns: repeat(auto-fill, 12rem);
 }
+
+.modal {
+  border-radius: 50%;
+  padding: 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(50, 50, 50);
+  }
+}
