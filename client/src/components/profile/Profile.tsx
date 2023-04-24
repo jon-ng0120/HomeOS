@@ -5,7 +5,7 @@ import LogOut from '../logout/LogOut';
 
 const Profile = () => {
   const authProviderCtx = useContext(AuthContext);
-  const { username, email, picture } = authProviderCtx.ProfileInfo;
+  const { username, email, picture } = authProviderCtx.profileInfo;
   const { openProfile, setOpenProfile } = authProviderCtx;
 
   return (

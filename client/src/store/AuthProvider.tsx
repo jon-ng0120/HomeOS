@@ -11,7 +11,7 @@ const AuthProvider = (props: any) => {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState();
-  const [ProfileInfo, setProfileInfo] = useState<UserInfoProp>();
+  const [profileInfo, setProfileInfo] = useState<UserInfoProp>();
   const [openProfile, setOpenProfile] = useState(false);
 
   const authContext = {
@@ -21,7 +21,7 @@ const AuthProvider = (props: any) => {
     setAccessToken,
     refreshToken,
     setRefreshToken,
-    ProfileInfo,
+    profileInfo,
     setProfileInfo,
     openProfile,
     setOpenProfile,

@@ -13,12 +13,12 @@ function App() {
   useEffect(() => {
     const setUserInfo = async (googleId: string) => {
       getResponseFromServer(googleId).then((res) => {
-        console.log(res);
         authProviderCtx.setAccessToken(res.accessToken);
         authProviderCtx.setProfileInfo({
           email: res.email,
           picture: res.picture,
           username: res.username,
+          websites: res.websites,
         });
       });
     };
