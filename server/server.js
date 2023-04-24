@@ -9,6 +9,19 @@ app.use(cors());
 
 require('dotenv').config();
 
+const DEFAULT_WEBSITES = [
+  {
+    name: 'Google',
+    url: 'https://www.google.com/',
+    // icon: 'https://api.faviconkit.com/google.com/144',
+  },
+  {
+    name: 'Reddit',
+    url: 'https://old.reddit.com/',
+    // icon: 'https://api.faviconkit.com/reddit.com/144',
+  },
+];
+
 const mongoDBURI = process.env.MONGO_DB;
 mongoose
   .connect(mongoDBURI)
@@ -64,6 +77,7 @@ app.get('/handleGoogleRedirect', async (req, res) => {
       given_name,
       family_name,
       picture,
+      websites: DEFAULT_WEBSITES,
       refresh_token: tokens.refresh_token,
     });
     await user.save();
@@ -98,6 +112,7 @@ app.post('/getValidToken', async (req, res) => {
         email: currentUser.email,
         username: currentUser.name,
         picture: currentUser.picture,
+        websites: currentUser.websites,
       });
     }
   } catch (error) {

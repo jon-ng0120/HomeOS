@@ -8,6 +8,12 @@ const UserSchema = new Schema({
   name: { type: String, required: true, maxLength: 100 },
   email: { type: String, required: true, lowercase: true },
   picture: { type: String, required: true },
+  websites: [
+    {
+      name: String,
+      url: String,
+    },
+  ],
   refresh_token: String,
 });
 
