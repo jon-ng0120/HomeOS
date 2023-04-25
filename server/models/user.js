@@ -12,9 +12,14 @@ const UserSchema = new Schema({
     {
       name: String,
       url: String,
+      icon: String,
     },
   ],
   refresh_token: String,
+});
+
+UserSchema.virtual('domainName').get(() => {
+  return this.websites;
 });
 
 module.exports = mongoose.model('User', UserSchema);

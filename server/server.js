@@ -13,12 +13,17 @@ const DEFAULT_WEBSITES = [
   {
     name: 'Google',
     url: 'https://www.google.com/',
-    // icon: 'https://api.faviconkit.com/google.com/144',
+    icon: 'https://api.faviconkit.com/google.com/144',
   },
   {
     name: 'Reddit',
     url: 'https://old.reddit.com/',
-    // icon: 'https://api.faviconkit.com/reddit.com/144',
+    icon: 'https://api.faviconkit.com/reddit.com/144',
+  },
+  {
+    name: 'YouTube',
+    url: 'https://old.reddit.com/',
+    icon: 'https://api.faviconkit.com/youtube.com/144',
   },
 ];
 
