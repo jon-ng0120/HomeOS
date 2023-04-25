@@ -10,15 +10,19 @@ const WebsitesContainer = () => {
   const { websites } = authProviderCtx.profileInfo;
 
   return (
-    <div className={classes.website_container}>
-      {websites.map((website) => {
-        return <Website website={website} />;
-      })}
+    <>
+      <div className={classes.website_container}>
+        {websites.map((website) => {
+          return <Website website={website} />;
+        })}
+        {openModal && (
+          <AddWebsiteModal closeModal={() => setOpenModal(false)} />
+        )}
+      </div>
       <div onClick={() => setOpenModal(true)}>
         <span className={`material-icons ${classes.modal}`}>add</span>
       </div>
-      {openModal && <AddWebsiteModal closeModal={() => setOpenModal(false)} />}
-    </div>
+    </>
   );
 };
 
