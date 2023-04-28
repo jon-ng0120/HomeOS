@@ -8,7 +8,7 @@ import WebsitesContainer from './components/websites/WebsitesContainer';
 
 function App() {
   const authProviderCtx = useContext(AuthContext);
-  const { openProfile, setOpenProfile } = authProviderCtx;
+  const { openProfile, setOpenProfile, setWebsites } = authProviderCtx;
 
   useEffect(() => {
     const setUserInfo = async (googleId: string) => {
@@ -19,7 +19,7 @@ function App() {
           picture: res.picture,
           username: res.username,
         });
-        authProviderCtx.setWebsites(res.websites);
+        setWebsites(res.websites);
       });
     };
     if (getGoogleIdLocalStorage() === null) {
