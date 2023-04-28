@@ -3,6 +3,7 @@ const { google } = require('googleapis');
 const mongoose = require('mongoose');
 const app = express();
 const User = require('./models/user');
+const websiteRouter = require('./routes/websites');
 
 const cors = require('cors');
 app.use(cors());
@@ -39,6 +40,8 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 const fetch = require('node-fetch');
 
+app.use('/website', websiteRouter);
+
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
@@ -63,7 +66,6 @@ app.get('/handleGoogleRedirect', async (req, res) => {
   const authorizationCode = req.query.code;
   const { tokens } = await oauth2Client.getToken(authorizationCode);
   oauth2Client.setCredentials(tokens);
-  console.log(tokens);
 
   // get google user profile info
   const oauth2 = google.oauth2({

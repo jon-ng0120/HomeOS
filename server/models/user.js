@@ -18,8 +18,4 @@ const UserSchema = new Schema({
   refresh_token: String,
 });
 
-UserSchema.virtual('domainName').get(() => {
-  return this.websites;
-});
-
 module.exports = mongoose.model('User', UserSchema);
