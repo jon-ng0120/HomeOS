@@ -7,7 +7,7 @@ import AuthContext from '../../store/auth-context';
 const WebsitesContainer = () => {
   const [openModal, setOpenModal] = useState(false);
   const authProviderCtx = useContext(AuthContext);
-  const { websites } = authProviderCtx.profileInfo;
+  const { websites } = authProviderCtx;
 
   return (
     <>

@@ -18,8 +18,8 @@ function App() {
           email: res.email,
           picture: res.picture,
           username: res.username,
-          websites: res.websites,
         });
+        authProviderCtx.setWebsites(res.websites);
       });
     };
     if (getGoogleIdLocalStorage() === null) {

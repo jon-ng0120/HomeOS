@@ -23,6 +23,7 @@ const AddWebsite = ({ closeModal }) => {
       if (res.status === 204) {
         setWebsite('');
         setUrl('');
+        closeModal();
       } else {
         console.log('not 204');
       }
