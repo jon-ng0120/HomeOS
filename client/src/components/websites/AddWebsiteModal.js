@@ -7,6 +7,8 @@ const AddWebsite = ({ closeModal }) => {
   const { websites, setWebsites } = authProviderCtx;
   const [website, setWebsite] = useState('');
   const [url, setUrl] = useState('');
+  const [nameError, setNameError] = useState(false);
+  const [urlError, setUrlError] = useState(false);
 
   const formHandler = async (e) => {
     e.preventDefault();
@@ -51,18 +53,32 @@ const AddWebsite = ({ closeModal }) => {
           <div>
             <label>Website Name</label>
             <input
+              className={nameError ? classes.error : classes.valid}
               type="text"
               onChange={(e) => setWebsite(e.target.value)}
               value={website}
             />
+            {nameError && (
+              <div className={classes.error_message}>
+                <span className="material-icons">error_outline</span>Please
+                <p>enter a website name</p>
+              </div>
+            )}
           </div>
           <div>
             <label>Website URL</label>
             <input
+              className={urlError ? classes.error : classes.valid}
               type="text"
               onChange={(e) => setUrl(e.target.value)}
               value={url}
             />
+            {urlError && (
+              <div className={classes.error_message}>
+                <span className="material-icons">error_outline</span>Please
+                enter a valid URL
+              </div>
+            )}
           </div>
           <div className={classes.form_actions}>
             <button

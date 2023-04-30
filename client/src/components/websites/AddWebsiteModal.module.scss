@@ -25,23 +25,41 @@
     div {
       display: flex;
       flex-direction: column;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       input[type='text'] {
         background-color: #474747;
         color: inherit;
         padding: 0.5rem 1rem;
         font-size: 1.6rem;
         border-radius: 0.5rem;
-        border: none;
-        border: 2px solid transparent;
         margin-top: 0.5rem;
+      }
+
+      .valid {
+        border: 2px solid transparent;
 
         &:focus {
           outline: none !important;
           border: 2px solid #bb86fc;
         }
       }
+
+      .error {
+        border: 2px solid #cd5268;
+        &:focus {
+          outline: none !important;
+        }
+      }
+
+      .error_message {
+        margin-top: 0.5rem;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;
+        color: #cd5268;
+      }
     }
+
     .form_actions {
       flex-direction: row;
       justify-content: end;
