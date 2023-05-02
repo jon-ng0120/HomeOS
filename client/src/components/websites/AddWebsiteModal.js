@@ -1,27 +1,47 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import classes from './AddWebsiteModal.module.scss';
 import AuthContext from '../../store/auth-context';
+import { validation } from '../../utilities/utilities';
 
 const AddWebsite = ({ closeModal }) => {
   const authProviderCtx = useContext(AuthContext);
-  const { websites, setWebsites } = authProviderCtx;
-  const [website, setWebsite] = useState('');
-  const [url, setUrl] = useState('');
-  const [nameError, setNameError] = useState(false);
-  const [urlError, setUrlError] = useState(false);
+  const { setWebsites } = authProviderCtx;
 
-  const formHandler = async (e) => {
+  const [values, setValues] = useState({
+    website: '',
+    url: '',
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleInput = (e) => {
+    const newObj = { ...values, [e.target.name]: e.target.value };
+    setValues(newObj);
+  };
+
+  const handleValidation = (e) => {
     e.preventDefault();
+    setErrors(validation(values));
+  };
+
+  useEffect(() => {
+    const isEmptyError = Object.keys(errors).length;
+    if (isEmptyError === 0) {
+      submitForm();
+    }
+  }, [errors]);
+
+  const submitForm = async (e) => {
     try {
       const googleId = localStorage.getItem('googleId');
-      const websiteDomain = url.match(
+      const websiteDomain = values.url.match(
         /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i
       )[1];
 
       const websiteObj = {
         googleId,
-        name: website,
-        url,
+        name: values.website,
+        url: values.url,
         icon: `https://api.faviconkit.com/${websiteDomain}/144`,
       };
       const res = await fetch('http://localhost:8080/website/create', {
@@ -33,8 +53,6 @@ const AddWebsite = ({ closeModal }) => {
       });
       if (res.status === 204) {
         setWebsites((currentSites) => [...currentSites, websiteObj]);
-        setWebsite('');
-        setUrl('');
         closeModal();
       } else {
         console.log('not 204');
@@ -49,16 +67,16 @@ const AddWebsite = ({ closeModal }) => {
       <div className={classes.overlay} onClick={closeModal} />
       <div className={classes.add_website_container}>
         <h2>Add Website</h2>
-        <form onSubmit={formHandler}>
+        <form onSubmit={handleValidation}>
           <div>
             <label>Website Name</label>
             <input
-              className={nameError ? classes.error : classes.valid}
+              className={errors.website ? classes.error : classes.valid}
+              name="website"
               type="text"
-              onChange={(e) => setWebsite(e.target.value)}
-              value={website}
+              onChange={handleInput}
             />
-            {nameError && (
+            {errors.website && (
               <div className={classes.error_message}>
                 <span className="material-icons">error_outline</span>Please
                 <p>enter a website name</p>
@@ -68,12 +86,12 @@ const AddWebsite = ({ closeModal }) => {
           <div>
             <label>Website URL</label>
             <input
-              className={urlError ? classes.error : classes.valid}
+              className={errors.url ? classes.error : classes.valid}
+              name="url"
               type="text"
-              onChange={(e) => setUrl(e.target.value)}
-              value={url}
+              onChange={handleInput}
             />
-            {urlError && (
+            {errors.url && (
               <div className={classes.error_message}>
                 <span className="material-icons">error_outline</span>Please
                 enter a valid URL
