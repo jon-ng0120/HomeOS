@@ -14,7 +14,6 @@ export const formatTime = (dateStr) => {
 
 export const validation = ({ website, url }) => {
   const errors = {};
-  console.log(website, url);
 
   if (website.trim().length === 0) {
     errors.website = true;
