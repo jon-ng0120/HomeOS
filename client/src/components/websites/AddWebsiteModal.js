@@ -42,7 +42,7 @@ const AddWebsite = ({ closeModal }) => {
         googleId,
         name: values.website,
         url: values.url,
-        icon: `https://api.faviconkit.com/${websiteDomain}/144`,
+        icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
       };
       const res = await fetch('http://localhost:8080/website/create', {
         method: 'POST',

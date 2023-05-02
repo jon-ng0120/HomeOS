@@ -14,17 +14,17 @@ const DEFAULT_WEBSITES = [
   {
     name: 'Google',
     url: 'https://www.google.com/',
-    icon: 'https://api.faviconkit.com/google.com/144',
+    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=64',
   },
   {
     name: 'Reddit',
     url: 'https://old.reddit.com/',
-    icon: 'https://api.faviconkit.com/reddit.com/144',
+    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://reddit.com&size=64',
   },
   {
     name: 'YouTube',
     url: 'https://old.reddit.com/',
-    icon: 'https://api.faviconkit.com/youtube.com/144',
+    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://youtube.com&size=64',
   },
 ];
 
