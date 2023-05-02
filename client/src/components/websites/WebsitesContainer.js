@@ -13,7 +13,12 @@ const WebsitesContainer = () => {
     <>
       <div className={classes.website_container}>
         {websites.map((website) => {
-          return <Website key={website._id} website={website} />;
+          return (
+            <Website
+              key={website._id ? website._id : new Date().getTime()}
+              website={website}
+            />
+          );
         })}
         {openModal && (
           <AddWebsiteModal closeModal={() => setOpenModal(false)} />
