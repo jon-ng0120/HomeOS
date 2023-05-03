@@ -1,28 +1,43 @@
-a {
-  text-decoration: none;
-}
-
 .website {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
-  gap: 0.75rem;
-  height: 8rem;
-  width: 14rem;
-  padding: 1rem;
   background-color: #2c2c2c;
-  color: #fff;
+
   word-wrap: break-word;
   text-align: center;
+  position: relative;
 
-  &:hover {
-    opacity: 0.8;
+  a {
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    color: #fff;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+
+  .more_options {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.2rem;
+    cursor: pointer;
+    z-index: 2;
+    // background-color: blue;
+
+    &:hover {
+      opacity: 0.6;
+    }
   }
 
   img {
     height: 4rem;
     width: 4rem;
+    margin-bottom: 0.5rem;
   }
 }
