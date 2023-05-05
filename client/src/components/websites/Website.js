@@ -5,6 +5,10 @@ import WebsiteOptions from './WebsiteOptions';
 const Website = ({ website }) => {
   const [optionsMenu, setOptionsMenu] = useState(false);
 
+  const closeModalHandler = () => {
+    setOptionsMenu(false);
+  };
+
   return (
     <div className={classes.website}>
       <span
@@ -13,7 +17,7 @@ const Website = ({ website }) => {
       >
         more_vert
       </span>
-      {optionsMenu && <WebsiteOptions />}
+      {optionsMenu && <WebsiteOptions closeModalHandler={closeModalHandler} />}
       <a href={website.url} target="_blank">
         <img src={website.icon} />
         <p>{website.name}</p>

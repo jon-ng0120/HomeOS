@@ -9,6 +9,7 @@
   word-wrap: break-word;
   text-align: center;
   position: relative;
+  border-bottom: 5px solid #bb86fc;
 
   a {
     text-decoration: none;
@@ -32,7 +33,6 @@
     right: 0.2rem;
     cursor: pointer;
     z-index: 2;
-    // background-color: blue;
 
     &:hover {
       opacity: 0.6;
