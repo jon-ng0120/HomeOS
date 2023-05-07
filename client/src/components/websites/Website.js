@@ -17,7 +17,12 @@ const Website = ({ website }) => {
       >
         more_vert
       </span>
-      {optionsMenu && <WebsiteOptions closeModalHandler={closeModalHandler} />}
+      {optionsMenu && (
+        <WebsiteOptions
+          website={website}
+          closeModalHandler={closeModalHandler}
+        />
+      )}
       <a href={website.url} target="_blank">
         <img src={website.icon} />
         <p>{website.name}</p>
