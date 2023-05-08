@@ -6,11 +6,23 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
   const authProviderCtx = useContext(AuthContext);
   const { setWebsites, websites } = authProviderCtx;
 
-  const deleteWebsite = () => {
+  const deleteWebsite = async () => {
     setWebsites((currentSites) =>
       currentSites.filter((data) => data.name != website.name)
     );
-    console.log(websites);
+    const googleId = localStorage.getItem('googleId');
+
+    const websiteName = {
+      googleId,
+      name: website.name,
+    };
+    await fetch('http://localhost:8080/website/delete', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(websiteName),
+    });
   };
 
   return (
