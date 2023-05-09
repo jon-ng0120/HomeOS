@@ -3,11 +3,12 @@ const router = express.Router();
 const User = require('../models/user');
 
 router.post('/create', async (req, res, next) => {
-  const { googleId, name, url, icon } = req.body;
+  const { googleId, timeCreated, name, url, icon } = req.body;
   try {
     const doc = await User.findOne({ google_id: googleId });
     doc.websites.push({
       name,
+      timeCreated,
       url,
       icon,
     });

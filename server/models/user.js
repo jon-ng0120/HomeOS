@@ -12,6 +12,7 @@ const UserSchema = new Schema({
     {
       name: String,
       url: String,
+      timeCreated: String,
       icon: String,
     },
   ],

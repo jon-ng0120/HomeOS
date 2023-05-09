@@ -5,7 +5,7 @@ import { validation } from '../../utilities/utilities';
 
 const AddWebsite = ({ closeModal }) => {
   const authProviderCtx = useContext(AuthContext);
-  const { setWebsites } = authProviderCtx;
+  const { websites, setWebsites } = authProviderCtx;
 
   const [values, setValues] = useState({
     website: '',
@@ -21,7 +21,7 @@ const AddWebsite = ({ closeModal }) => {
 
   const handleValidation = (e) => {
     e.preventDefault();
-    setErrors(validation(values));
+    setErrors(validation(websites, values));
   };
 
   useEffect(() => {
@@ -40,6 +40,7 @@ const AddWebsite = ({ closeModal }) => {
 
       const websiteObj = {
         googleId,
+        timeCreated: new Date().getTime(),
         name: values.website,
         url: values.url,
         icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
@@ -78,8 +79,8 @@ const AddWebsite = ({ closeModal }) => {
             />
             {errors.website && (
               <div className={classes.error_message}>
-                <span className="material-icons">error_outline</span>Please
-                <p>enter a website name</p>
+                <span className="material-icons">error_outline</span>
+                <p>{errors.website}</p>
               </div>
             )}
           </div>
@@ -93,8 +94,8 @@ const AddWebsite = ({ closeModal }) => {
             />
             {errors.url && (
               <div className={classes.error_message}>
-                <span className="material-icons">error_outline</span>Please
-                enter a valid URL
+                <span className="material-icons">error_outline</span>
+                <p>{errors.url}</p>
               </div>
             )}
           </div>

@@ -12,15 +12,19 @@ export const formatTime = (dateStr) => {
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 };
 
-export const validation = ({ website, url }) => {
+export const validation = (websiteArr, { website, url }) => {
   const errors = {};
 
   if (website.trim().length === 0) {
-    errors.website = true;
+    errors.website = 'Please enter a website name';
+  }
+
+  if (checkIfWebsiteExists(websiteArr, website)) {
+    errors.website = 'This website has already been added';
   }
 
   if (!checkUrl(url)) {
-    errors.url = true;
+    errors.url = 'Please enter a valid URL';
   }
 
   return errors;
@@ -33,4 +37,11 @@ const checkUrl = (url) => {
   } catch (err) {
     return false;
   }
+};
+
+const checkIfWebsiteExists = (websites, websiteName) => {
+  const websiteExists = websites.some(
+    (website) => website.name === websiteName
+  );
+  return websiteExists;
 };
