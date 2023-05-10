@@ -3,13 +3,13 @@ import classes from './AddWebsiteModal.module.scss';
 import AuthContext from '../../store/auth-context';
 import { validation } from '../../utilities/utilities';
 
-const AddWebsite = ({ closeModal }) => {
+const AddWebsite = ({ websiteObj, closeModal }) => {
   const authProviderCtx = useContext(AuthContext);
   const { websites, setWebsites } = authProviderCtx;
 
   const [values, setValues] = useState({
-    website: '',
-    url: '',
+    website: websiteObj.website,
+    url: websiteObj.url,
   });
 
   const [errors, setErrors] = useState({});
@@ -75,6 +75,7 @@ const AddWebsite = ({ closeModal }) => {
               className={errors.website ? classes.error : classes.valid}
               name="website"
               type="text"
+              value={values.website}
               onChange={handleInput}
             />
             {errors.website && (
@@ -89,6 +90,7 @@ const AddWebsite = ({ closeModal }) => {
             <input
               className={errors.url ? classes.error : classes.valid}
               name="url"
+              value={values.url}
               type="text"
               onChange={handleInput}
             />

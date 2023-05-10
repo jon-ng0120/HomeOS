@@ -1,10 +1,17 @@
-import { useContext } from 'react';
+import { useState, useContext } from 'react';
 import classes from './WebsiteOptions.module.scss';
 import AuthContext from '../../store/auth-context';
+import AddWebsiteModal from './AddWebsiteModal';
 
 const WebsiteOptions = ({ website, closeModalHandler }) => {
+  const [openModal, setOpenModal] = useState(false);
   const authProviderCtx = useContext(AuthContext);
   const { setWebsites, websites } = authProviderCtx;
+
+  const editModalHandler = () => {
+    console.log('test');
+    setOpenModal(true);
+  };
 
   const deleteWebsite = async () => {
     setWebsites((currentSites) =>
@@ -27,8 +34,14 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
 
   return (
     <>
+      {openModal && (
+        <AddWebsiteModal
+          websiteObj={{ website: 'f', url: 's' }}
+          closeModal={closeModalHandler}
+        />
+      )}
       <div className={classes.overlay} onClick={closeModalHandler} />
-      <div className={classes.more_options}>
+      <div className={classes.more_options} onClick={editModalHandler}>
         <p>
           <span className="material-icons">edit</span>Edit
         </p>

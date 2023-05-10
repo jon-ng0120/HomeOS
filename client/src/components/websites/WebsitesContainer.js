@@ -16,7 +16,10 @@ const WebsitesContainer = () => {
           return <Website key={website.timeCreated} website={website} />;
         })}
         {openModal && (
-          <AddWebsiteModal closeModal={() => setOpenModal(false)} />
+          <AddWebsiteModal
+            websiteObj={{ website: '', url: '' }}
+            closeModal={() => setOpenModal(false)}
+          />
         )}
       </div>
       <div onClick={() => setOpenModal(true)}>
