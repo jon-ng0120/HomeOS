@@ -103,7 +103,6 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   };
 
   useEffect(() => {
-    // console.log(modifyErrorOnModalType());
     if (initialRender.current) {
       initialRender.current = false;
     } else {
@@ -112,7 +111,6 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
         submitForm();
       }
     }
-    console.log(errors);
   }, [errors]);
 
   return (
@@ -162,7 +160,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
               Cancel
             </button>
             <button type="submit" className={classes.submit}>
-              Add
+              {type === 'ADD' ? 'Add' : 'Save'}
             </button>
           </div>
         </form>
