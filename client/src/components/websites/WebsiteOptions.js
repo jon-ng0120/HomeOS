@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import classes from './WebsiteOptions.module.scss';
 import AuthContext from '../../store/auth-context';
-import AddWebsiteModal from './AddWebsiteModal';
+import AddWebsiteModal from './WebsiteModal';
 
 const WebsiteOptions = ({ website, closeModalHandler }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -9,7 +9,6 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
   const { setWebsites, websites } = authProviderCtx;
 
   const editModalHandler = () => {
-    console.log('test');
     setOpenModal(true);
   };
 
@@ -19,16 +18,16 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
     );
     const googleId = localStorage.getItem('googleId');
 
-    const websiteName = {
+    const websiteObj = {
       googleId,
-      name: website.name,
+      uuid: website.uuid,
     };
     await fetch('http://localhost:8080/website/delete', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(websiteName),
+      body: JSON.stringify(websiteObj),
     });
   };
 
@@ -36,7 +35,7 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
     <>
       {openModal && (
         <AddWebsiteModal
-          websiteObj={{ website: 'f', url: 's' }}
+          websiteObj={{ website: website.name, url: website.url }}
           closeModal={closeModalHandler}
         />
       )}

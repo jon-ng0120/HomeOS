@@ -1,16 +1,19 @@
-import { useState, useContext, useEffect } from 'react';
-import classes from './AddWebsiteModal.module.scss';
+import { useState, useContext, useEffect, useRef } from 'react';
+import classes from './WebsiteModal.module.scss';
 import AuthContext from '../../store/auth-context';
-import { validation } from '../../utilities/utilities';
+import { validation, extractWebsiteDomain } from '../../utilities/utilities';
 
-const AddWebsite = ({ websiteObj, closeModal }) => {
+const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   const authProviderCtx = useContext(AuthContext);
   const { websites, setWebsites } = authProviderCtx;
+  const initialRender = useRef(true);
 
   const [values, setValues] = useState({
     website: websiteObj.website,
     url: websiteObj.url,
   });
+
+  const originalValues = values;
 
   const [errors, setErrors] = useState({});
 
@@ -24,44 +27,71 @@ const AddWebsite = ({ websiteObj, closeModal }) => {
     setErrors(validation(websites, values));
   };
 
-  useEffect(() => {
-    const isEmptyError = Object.keys(errors).length;
-    if (isEmptyError === 0) {
-      submitForm();
+  const addWebsite = async () => {
+    const googleId = localStorage.getItem('googleId');
+    const websiteDomain = extractWebsiteDomain(values.url);
+
+    const websiteObj = {
+      googleId,
+      uuid: crypto.randomUUID(),
+      name: values.website,
+      url: values.url,
+      icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
+    };
+    console.log(websiteObj);
+    const res = await fetch('http://localhost:8080/website/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(websiteObj),
+    });
+    if (res.status === 204) {
+      setWebsites((currentSites) => [...currentSites, websiteObj]);
+      closeModal();
+    } else {
+      console.log('not 204');
     }
-  }, [errors]);
+  };
+
+  const editWebsite = async () => {
+    console.log(originalValues);
+    // const newState = await websites.map((website) => {
+    //   console.log(website);
+    //   if (website.name === values.website) {
+    //     let newObj = { ...website };
+    //     console.log(newObj);
+    //     newWebsiteObj = values.website
+    //     url: values.url
+    //     return newObj;
+    //   }
+    // });
+    // console.log(newState);
+    // setWebsites(newState);
+  };
 
   const submitForm = async (e) => {
     try {
-      const googleId = localStorage.getItem('googleId');
-      const websiteDomain = values.url.match(
-        /^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i
-      )[1];
-
-      const websiteObj = {
-        googleId,
-        timeCreated: new Date().getTime(),
-        name: values.website,
-        url: values.url,
-        icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
-      };
-      const res = await fetch('http://localhost:8080/website/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(websiteObj),
-      });
-      if (res.status === 204) {
-        setWebsites((currentSites) => [...currentSites, websiteObj]);
-        closeModal();
+      if (type === 'ADD') {
+        addWebsite();
       } else {
-        console.log('not 204');
+        editWebsite();
       }
     } catch (err) {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      const isEmptyError = Object.keys(errors).length;
+      if (isEmptyError === 0) {
+        submitForm();
+      }
+    }
+  }, [errors]);
 
   return (
     <>
@@ -119,4 +149,4 @@ const AddWebsite = ({ websiteObj, closeModal }) => {
   );
 };
 
-export default AddWebsite;
+export default WebsiteModal;

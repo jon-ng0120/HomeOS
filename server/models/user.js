@@ -12,7 +12,7 @@ const UserSchema = new Schema({
     {
       name: String,
       url: String,
-      timeCreated: String,
+      uuid: String,
       icon: String,
     },
   ],

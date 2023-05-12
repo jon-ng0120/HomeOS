@@ -3,12 +3,12 @@ const router = express.Router();
 const User = require('../models/user');
 
 router.post('/create', async (req, res, next) => {
-  const { googleId, timeCreated, name, url, icon } = req.body;
+  const { googleId, uuid, name, url, icon } = req.body;
   try {
     const doc = await User.findOne({ google_id: googleId });
     doc.websites.push({
       name,
-      timeCreated,
+      uuid,
       url,
       icon,
     });
@@ -22,7 +22,7 @@ router.post('/create', async (req, res, next) => {
 });
 
 router.post('/delete', async (req, res) => {
-  const { googleId, name } = req.body;
+  const { googleId, uuid } = req.body;
   try {
     await User.updateOne(
       {
@@ -30,7 +30,7 @@ router.post('/delete', async (req, res) => {
       },
       {
         $pull: {
-          websites: { name },
+          websites: { uuid },
         },
       }
     );

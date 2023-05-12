@@ -45,3 +45,8 @@ const checkIfWebsiteExists = (websites, websiteName) => {
   );
   return websiteExists;
 };
+
+export const extractWebsiteDomain = (url) => {
+  const websiteDomain = url.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)[1];
+  return websiteDomain;
+};

@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import Website from './Website';
-import AddWebsiteModal from './AddWebsiteModal';
+import WebsiteModal from './WebsiteModal';
 import classes from './WebsiteContainer.module.scss';
 import AuthContext from '../../store/auth-context';
 
@@ -13,12 +13,14 @@ const WebsitesContainer = () => {
     <>
       <div className={classes.website_container}>
         {websites.map((website) => {
-          return <Website key={website.timeCreated} website={website} />;
+          console.log(website);
+          return <Website key={website.uuid} website={website} />;
         })}
         {openModal && (
-          <AddWebsiteModal
+          <WebsiteModal
             websiteObj={{ website: '', url: '' }}
             closeModal={() => setOpenModal(false)}
+            type="ADD"
           />
         )}
       </div>
