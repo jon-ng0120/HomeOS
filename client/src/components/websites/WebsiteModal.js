@@ -55,11 +55,14 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
 
   const editWebsite = async () => {
     const websiteObject = values;
+    const websiteDomain = extractWebsiteDomain(websiteObject.url);
+    const websiteIcon = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`;
     const newState = await websites.map((website) => {
       if (website.uuid === websiteObject.uuid) {
         let newObj = { ...website };
         newObj.name = values.website;
         newObj.url = values.url;
+        newObj.icon = websiteIcon;
         return newObj;
       }
       return website;
@@ -70,7 +73,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ googleId, ...websiteObject }),
+      body: JSON.stringify({ googleId, websiteIcon, ...websiteObject }),
     });
     if (res.status === 204) {
       setWebsites(newState);

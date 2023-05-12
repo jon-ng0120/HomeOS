@@ -40,7 +40,8 @@ router.post('/delete', async (req, res) => {
 });
 
 router.post('/update', async (req, res) => {
-  const { googleId, website, url, uuid } = req.body;
+  const { googleId, website, url, websiteIcon, uuid } = req.body;
+  console.log(req.body);
   try {
     await User.findOneAndUpdate(
       {
@@ -50,6 +51,7 @@ router.post('/update', async (req, res) => {
         $set: {
           'websites.$[el].name': website,
           'websites.$[el].url': url,
+          'websites.$[el].icon': websiteIcon,
         },
       },
       {
