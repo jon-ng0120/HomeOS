@@ -8,9 +8,12 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   const { websites, setWebsites } = authProviderCtx;
   const initialRender = useRef(true);
 
+  const googleId = localStorage.getItem('googleId');
+
   const [values, setValues] = useState({
     website: websiteObj.website,
     url: websiteObj.url,
+    uuid: websiteObj.uuid,
   });
 
   const [errors, setErrors] = useState({});
@@ -26,7 +29,6 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   };
 
   const addWebsite = async () => {
-    const googleId = localStorage.getItem('googleId');
     const websiteDomain = extractWebsiteDomain(values.url);
 
     const websiteObj = {
@@ -52,8 +54,9 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   };
 
   const editWebsite = async () => {
+    const websiteObject = values;
     const newState = await websites.map((website) => {
-      if (website.uuid === websiteObj.uuid) {
+      if (website.uuid === websiteObject.uuid) {
         let newObj = { ...website };
         console.log(newObj);
         newObj.name = values.website;
@@ -63,6 +66,14 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
       return website;
     });
     setWebsites(newState);
+    console.log(websiteObject);
+    await fetch('http://localhost:8080/website/update', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ googleId, ...websiteObject }),
+    });
   };
 
   const submitForm = async (e) => {

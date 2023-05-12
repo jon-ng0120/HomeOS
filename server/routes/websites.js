@@ -39,4 +39,26 @@ router.post('/delete', async (req, res) => {
   }
 });
 
+router.post('/update', async (req, res) => {
+  const { googleId, website, url, uuid } = req.body;
+  try {
+    await User.findOneAndUpdate(
+      {
+        google_id: googleId,
+      },
+      {
+        $set: {
+          'websites.$[el].name': website,
+          'websites.$[el].url': url,
+        },
+      },
+      {
+        arrayFilters: [{ 'el.uuid': uuid }],
+      }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 module.exports = router;
