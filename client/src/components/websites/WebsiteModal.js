@@ -25,7 +25,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
 
   const handleValidation = (e) => {
     e.preventDefault();
-    setErrors(validation(websites, values));
+    setErrors(modifyErrorOnModalType());
   };
 
   const addWebsite = async () => {
@@ -58,22 +58,26 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
     const newState = await websites.map((website) => {
       if (website.uuid === websiteObject.uuid) {
         let newObj = { ...website };
-        console.log(newObj);
         newObj.name = values.website;
         newObj.url = values.url;
         return newObj;
       }
       return website;
     });
-    setWebsites(newState);
-    console.log(websiteObject);
-    await fetch('http://localhost:8080/website/update', {
+
+    const res = await fetch('http://localhost:8080/website/update', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ googleId, ...websiteObject }),
     });
+    if (res.status === 204) {
+      setWebsites(newState);
+      closeModal();
+    } else {
+      console.log('not 204');
+    }
   };
 
   const submitForm = async (e) => {
@@ -88,7 +92,18 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
     }
   };
 
+  const modifyErrorOnModalType = () => {
+    let errors = validation(websites, values);
+    if (type !== 'ADD') {
+      if (errors.website === 'This website has already been added') {
+        delete errors.website;
+      }
+    }
+    return errors;
+  };
+
   useEffect(() => {
+    // console.log(modifyErrorOnModalType());
     if (initialRender.current) {
       initialRender.current = false;
     } else {
@@ -97,6 +112,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
         submitForm();
       }
     }
+    console.log(errors);
   }, [errors]);
 
   return (

@@ -14,7 +14,7 @@ router.post('/create', async (req, res, next) => {
     });
     await doc.save();
     res.status(204).json({
-      message: 'Document updated',
+      message: 'Document created',
     });
   } catch (err) {
     console.log(err);
@@ -56,6 +56,9 @@ router.post('/update', async (req, res) => {
         arrayFilters: [{ 'el.uuid': uuid }],
       }
     );
+    res.status(204).json({
+      message: 'Document updated',
+    });
   } catch (err) {
     console.log(err);
   }
