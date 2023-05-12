@@ -35,7 +35,11 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
     <>
       {openModal && (
         <AddWebsiteModal
-          websiteObj={{ website: website.name, url: website.url }}
+          websiteObj={{
+            website: website.name,
+            url: website.url,
+            uuid: website.uuid,
+          }}
           closeModal={closeModalHandler}
         />
       )}

@@ -13,7 +13,6 @@ const WebsitesContainer = () => {
     <>
       <div className={classes.website_container}>
         {websites.map((website) => {
-          console.log(website);
           return <Website key={website.uuid} website={website} />;
         })}
         {openModal && (

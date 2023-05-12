@@ -13,8 +13,6 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
     url: websiteObj.url,
   });
 
-  const originalValues = values;
-
   const [errors, setErrors] = useState({});
 
   const handleInput = (e) => {
@@ -38,7 +36,6 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
       url: values.url,
       icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
     };
-    console.log(websiteObj);
     const res = await fetch('http://localhost:8080/website/create', {
       method: 'POST',
       headers: {
@@ -55,19 +52,17 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   };
 
   const editWebsite = async () => {
-    console.log(originalValues);
-    // const newState = await websites.map((website) => {
-    //   console.log(website);
-    //   if (website.name === values.website) {
-    //     let newObj = { ...website };
-    //     console.log(newObj);
-    //     newWebsiteObj = values.website
-    //     url: values.url
-    //     return newObj;
-    //   }
-    // });
-    // console.log(newState);
-    // setWebsites(newState);
+    const newState = await websites.map((website) => {
+      if (website.uuid === websiteObj.uuid) {
+        let newObj = { ...website };
+        console.log(newObj);
+        newObj.name = values.website;
+        newObj.url = values.url;
+        return newObj;
+      }
+      return website;
+    });
+    setWebsites(newState);
   };
 
   const submitForm = async (e) => {
