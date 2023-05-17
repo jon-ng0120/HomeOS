@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import './App.scss';
-import CalendarEvents from './components/calendar/CalendarEvents';
+import ContentContainer from './components/contentContainer/ContentContainer';
 import WelcomePanel from './components/welcome/WelcomePanel';
 import AuthContext from './store/auth-context';
 import Profile from './components/profile/Profile';
@@ -98,7 +98,7 @@ function App() {
       <div className="App">
         <Profile />
         <WelcomePanel />
-        <CalendarEvents />
+        <ContentContainer />
         <WebsitesContainer />
         {openProfile && (
           <div

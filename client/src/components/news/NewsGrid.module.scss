@@ -1,0 +1,7 @@
+.news_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  //   max-width: 1100px;
+  gap: 3rem;
+}
