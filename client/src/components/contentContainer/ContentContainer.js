@@ -5,12 +5,12 @@ import NewsGrid from '../news/NewsGrid';
 
 const ContentContainer = () => {
   return (
-    <div>
+    <div className={classes.content_container}>
       <span className={`material-icons ${classes.tab_option}`}>
         calendar_month
       </span>
       <span className={`material-icons ${classes.tab_option}`}>feed</span>
-      <CalendarEvents />
+      {/* <CalendarEvents /> */}
       <NewsGrid />
     </div>
   );
