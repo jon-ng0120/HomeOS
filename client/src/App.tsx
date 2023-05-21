@@ -97,15 +97,17 @@ function App() {
     return (
       <div className="App">
         <Profile />
-        <WelcomePanel />
-        <ContentContainer />
-        <WebsitesContainer />
         {openProfile && (
           <div
             className="background"
             onClick={() => setOpenProfile(!openProfile)}
           />
         )}
+        <WelcomePanel />
+        <main>
+          <ContentContainer />
+          <WebsitesContainer />
+        </main>
       </div>
     );
   } else {

@@ -1,15 +1,19 @@
+.news_grid_container {
+  width: 100%;
+}
+
 .news_grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   gap: 3rem;
 }
 
 .categories {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   justify-content: center;
-  gap: 4rem;
+  gap: 2rem;
   margin-bottom: 3rem;
 
   li {

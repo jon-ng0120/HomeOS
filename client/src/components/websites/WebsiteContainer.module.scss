@@ -1,6 +1,7 @@
 .website_container {
   display: grid;
   gap: 1rem;
+  width: 100%;
   grid-template-columns: repeat(auto-fill, 17rem);
 }
 
