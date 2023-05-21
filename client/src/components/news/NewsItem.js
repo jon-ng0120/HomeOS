@@ -1,4 +1,4 @@
-import React from 'react';
+import notFoundImage from '../../assets/image-not-found.png';
 import classes from './NewsItem.module.scss';
 import { extractWebsiteDomain, formatDate } from '../../utilities/utilities';
 
@@ -10,7 +10,7 @@ const NewsItem = ({ image, url, source, title, description, publishedAt }) => {
   return (
     <a href={url} target="_blank" className={classes.newsItem}>
       <div className={classes.image_container}>
-        <img src={image} />
+        <img src={image ? image : notFoundImage} />
       </div>
       <div className={classes.newsItem_content}>
         <div className={classes.source}>
