@@ -115,7 +115,7 @@ const NewsGrid = () => {
         </div>
       </div>
 
-      <div className={classes.news_grid}>
+      <div className={classes.news_grid} key={category}>
         {newsItems &&
           newsItems.map((item) => {
             return (
