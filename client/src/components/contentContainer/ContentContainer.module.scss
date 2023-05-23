@@ -3,9 +3,16 @@
   flex-direction: column;
   width: 100%;
   margin: auto;
+  overflow-y: scroll;
+  height: 60rem;
+}
+
+.tabs {
+  display: flex;
 }
 
 .tab_option {
   font-size: 2.5rem;
   color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
 }

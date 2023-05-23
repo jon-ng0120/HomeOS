@@ -2,13 +2,8 @@ import { useState, useEffect, useContext } from 'react';
 import Weather from '../weather/Weather';
 import classes from './WelcomePanel.module.scss';
 
-type DateTime = {
-  date: string;
-  time: string;
-};
-
 const WelcomePanel = () => {
-  const [dateTime, setDateTime] = useState<DateTime>({} as DateTime);
+  const [dateTime, setDateTime] = useState({});
 
   const handleFormattingDateTime = () => {
     const date = new Date();
@@ -35,9 +30,14 @@ const WelcomePanel = () => {
 
   return (
     <div className={classes.welcome_panel_container}>
-      <h1>Welcome Jon</h1>
-      <p className={classes.time}>{dateTime.time}</p>
-      <p className={classes.date}>{dateTime.date}</p>
+      <div>
+        <p className={classes.date}>{dateTime.date}</p>
+        <p className={classes.time}>{dateTime.time}</p>
+        <div className={classes.greeting}>
+          <p>Welcome Jon</p>
+        </div>
+      </div>
+
       <Weather />
     </div>
   );
