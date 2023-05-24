@@ -4,10 +4,11 @@
   border-radius: 1rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  overflow: hidden;
   text-decoration: none;
   color: inherit;
   height: 20rem;
+  width: 95%;
+  margin: auto;
 
   &:hover .image_container img {
     transform: scale(1.1);
@@ -22,6 +23,7 @@
     width: 100%;
     height: 100%;
     transition: 0.5s ease-in-out;
+    border-radius: 1rem 0 0 1rem;
   }
 }
 
