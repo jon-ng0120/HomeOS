@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import Website from './Website';
 import WebsiteModal from './WebsiteModal';
+import GoogleSearch from '../googleSearch/GoogleSearch';
 import classes from './WebsiteContainer.module.scss';
 import AuthContext from '../../store/auth-context';
 
@@ -11,6 +12,7 @@ const WebsitesContainer = () => {
 
   return (
     <div className={classes.website_container}>
+      <GoogleSearch />
       {websites.map((website) => {
         return <Website key={website.uuid} website={website} />;
       })}
