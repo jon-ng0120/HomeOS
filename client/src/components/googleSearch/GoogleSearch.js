@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import classes from './GoogleSearch.module.scss';
 
 const GoogleSearch = () => {
   const searchRef = useRef('');
@@ -12,8 +13,9 @@ const GoogleSearch = () => {
     searchRef.current.value = '';
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <input ref={searchRef} />
+    <form onSubmit={handleSubmit} className={classes.google_search_container}>
+      <span class="material-icons">search</span>
+      <input ref={searchRef} placeholder="Search on Google" />
     </form>
   );
 };

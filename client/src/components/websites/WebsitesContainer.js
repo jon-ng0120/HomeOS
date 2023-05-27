@@ -11,20 +11,22 @@ const WebsitesContainer = () => {
   const { websites } = authProviderCtx;
 
   return (
-    <div className={classes.website_container}>
+    <div className={classes.flex}>
       <GoogleSearch />
-      {websites.map((website) => {
-        return <Website key={website.uuid} website={website} />;
-      })}
-      {openModal && (
-        <WebsiteModal
-          websiteObj={{ website: '', url: '' }}
-          closeModal={() => setOpenModal(false)}
-          type="ADD"
-        />
-      )}
-      <div onClick={() => setOpenModal(true)}>
-        <span className={`material-icons ${classes.modal}`}>add</span>
+      <div className={classes.website_container}>
+        {websites.map((website) => {
+          return <Website key={website.uuid} website={website} />;
+        })}
+        {openModal && (
+          <WebsiteModal
+            websiteObj={{ website: '', url: '' }}
+            closeModal={() => setOpenModal(false)}
+            type="ADD"
+          />
+        )}
+        <div onClick={() => setOpenModal(true)}>
+          <span className={`material-icons ${classes.modal}`}>add</span>
+        </div>
       </div>
     </div>
   );

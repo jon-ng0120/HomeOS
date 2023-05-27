@@ -1,0 +1,21 @@
+.google_search_container {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  input {
+    width: 100%;
+    font-size: 1.6rem;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
