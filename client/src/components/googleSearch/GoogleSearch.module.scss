@@ -1,5 +1,5 @@
 .google_search_container {
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0.8);
   padding: 1rem 1.5rem;
   border-radius: 3rem;
   display: flex;
@@ -7,7 +7,7 @@
   gap: 1rem;
 
   span {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
   }
 
   input {
@@ -16,6 +16,6 @@
     background-color: transparent;
     border: none;
     outline: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
   }
 }

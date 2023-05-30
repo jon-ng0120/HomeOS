@@ -1,31 +1,16 @@
+@import '../../vars.css';
+
 .calendar_events_container {
-  background-color: #2c2c2c;
   padding: 2.5rem;
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 40rem;
-  overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    width: 1em;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: #3b3b3b;
-    border-radius: 100vw;
-    margin-block: 0.1em;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: #bb86fc;
-    border-radius: 100vw;
-    border: 0.2em solid #3b3b3b;
-  }
 
   .date {
     font-size: 1.8rem;
     font-weight: 600;
-    color: #bb86fc;
+    color: var(--color-primary);
     padding-bottom: 0.5rem;
     border-bottom: 1px solid #bb86fc;
   }
