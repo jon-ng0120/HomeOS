@@ -17,12 +17,20 @@
   transform: translate(-50%, -50%);
   z-index: 6;
   background-color: #f5f5fa;
-  padding: 3rem 2rem 1.5rem 2rem;
+  padding: 2rem 2rem 1.5rem 2rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   width: 35rem;
+
+  .close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
 
   .description {
     color: rgba(0, 0, 0, 0.7);

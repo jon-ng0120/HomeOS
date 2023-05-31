@@ -120,6 +120,12 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
     <>
       <div className={classes.overlay} onClick={closeModal} />
       <div className={classes.add_website_container}>
+        <span
+          onClick={closeModal}
+          className={`material-icons ${classes.close}`}
+        >
+          close
+        </span>
         <h2>Add website</h2>
         <span className={classes.description}> Add website details</span>
         <form onSubmit={handleValidation}>
