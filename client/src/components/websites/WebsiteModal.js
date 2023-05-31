@@ -120,16 +120,18 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
     <>
       <div className={classes.overlay} onClick={closeModal} />
       <div className={classes.add_website_container}>
-        <h2>Add Website</h2>
+        <h2>Add website</h2>
+        <span className={classes.description}> Add website details</span>
         <form onSubmit={handleValidation}>
           <div>
-            <label>Website Name</label>
+            <label>Website*</label>
             <input
               className={errors.website ? classes.error : classes.valid}
               name="website"
               type="text"
               value={values.website}
               onChange={handleInput}
+              placeholder="Website Name"
             />
             {errors.website && (
               <div className={classes.error_message}>
@@ -139,13 +141,14 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
             )}
           </div>
           <div>
-            <label>Website URL</label>
+            <label>URL*</label>
             <input
               className={errors.url ? classes.error : classes.valid}
               name="url"
               value={values.url}
               type="text"
               onChange={handleInput}
+              placeholder="https://www.example.ca/"
             />
             {errors.url && (
               <div className={classes.error_message}>

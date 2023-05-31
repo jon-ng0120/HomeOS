@@ -4,22 +4,35 @@
   left: 0;
   right: 0;
   bottom: 0;
-  // background-color: rgba(0, 0, 0, 0.4);
   z-index: 3;
 }
 
 .more_options {
   position: absolute;
   right: 0.5rem;
-  top: 3rem;
+  top: 3.5rem;
   z-index: 4;
-  background-color: #442468;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 5px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 10px;
+    height: 20px;
+    width: 7px;
+    background: rgba(255, 255, 255);
+    transform: rotate(45deg);
+  }
 
   p {
     display: flex;
     align-items: center;
     gap: 1rem;
     padding: 0.5rem 1rem;
+    color: rgba(0, 0, 0, 0.9);
 
     &:hover {
       cursor: pointer;

@@ -3,7 +3,6 @@ import classes from './NewsItem.module.scss';
 import { extractWebsiteDomain, formatDate } from '../../utilities/utilities';
 
 const NewsItem = ({ image, url, source, title, description, publishedAt }) => {
-  console.log(description);
   const websiteDomain = extractWebsiteDomain(url);
   const websiteIcon = `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=16`;
   const formattedDate = formatDate(publishedAt).split(' ').splice(1).join(' ');

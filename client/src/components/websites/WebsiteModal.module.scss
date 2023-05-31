@@ -1,10 +1,12 @@
+@import '../../vars.css';
+
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
   z-index: 5;
 }
 
@@ -14,25 +16,39 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 6;
-  background-color: #353535;
+  background-color: #f5f5fa;
   padding: 3rem 2rem 1.5rem 2rem;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 35rem;
+
+  .description {
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: -1rem;
+    padding: none;
+    display: inline;
+  }
 
   form {
     div {
       display: flex;
       flex-direction: column;
       margin-bottom: 1.5rem;
+      text-align: start;
       input[type='text'] {
-        background-color: #474747;
         color: inherit;
         padding: 0.5rem 1rem;
         font-size: 1.6rem;
         border-radius: 0.5rem;
         margin-top: 0.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      label {
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.7);
       }
 
       .valid {
@@ -68,7 +84,7 @@
 
       button {
         padding: 0.75rem 2rem;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
         border: none;
         cursor: pointer;
 
