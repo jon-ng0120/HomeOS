@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import NewsItem from './NewsItem';
 import classes from './NewsGrid.module.scss';
 
 const NewsGrid = () => {
+  const dropdownRef = useRef(null);
+  const [activeDropdown, setActiveDropdown] = useState(false);
   const [category, setCategory] = useState('general');
   const [newsItems, setNewsItems] = useState([]);
-  const [country, setCountry] = useState('us');
+  const [country, setCountry] = useState({ name: 'United States', code: 'us' });
   const categories = [
     'general',
     'business',
@@ -73,13 +75,21 @@ const NewsGrid = () => {
   ];
 
   const countryChangeHandler = (e) => {
-    setCountry(e.target.value);
+    setCountry({
+      name: e.target.innerText,
+      code: e.target.getAttribute('data-country-code'),
+    });
+    toggleDropdown();
+  };
+
+  const toggleDropdown = () => {
+    setActiveDropdown(!activeDropdown);
   };
 
   useEffect(() => {
     const getNews = async () => {
       const newsResponse = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=023293fc74884b89b7ef26247d57463a`
+        `https://newsapi.org/v2/top-headlines?country=${country.code}&category=${category}&apiKey=023293fc74884b89b7ef26247d57463a`
       );
       const data = await newsResponse.json();
       setNewsItems(data.articles);
@@ -112,6 +122,30 @@ const NewsGrid = () => {
               );
             })}
           </select>
+        </div>
+        <div className={classes.select_menu}>
+          <p>Select Country</p>
+          <div className={classes.select_btn} onClick={toggleDropdown}>
+            <span>{country.name}</span>
+          </div>
+          <ul
+            ref={dropdownRef}
+            className={`${classes.options} ${
+              activeDropdown ? classes.activeDropdown : classes.hidden_dropdown
+            }`}
+          >
+            {countries.map((country) => {
+              return (
+                <li
+                  onClick={countryChangeHandler}
+                  className={classes.option}
+                  data-country-code={country.code}
+                >
+                  {country.name}
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </div>
 

@@ -6,11 +6,40 @@
   gap: 4rem;
 }
 
+.modal_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(127, 127, 127, 0.7);
+  padding-bottom: 0.5rem;
+
+  p {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+  }
+
+  .open_modal {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    background-color: var(--color-primary);
+    padding: 0.5rem 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
+  }
+}
+
 .website_container {
   display: grid;
   gap: 2rem;
   width: 100%;
   grid-template-columns: repeat(auto-fill, 14rem);
+  position: relative;
 }
 
 .modal {

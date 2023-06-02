@@ -22,7 +22,7 @@ const GoogleSearch = () => {
       onClick={handleClick}
       className={classes.google_search_container}
     >
-      <span class="material-icons">search</span>
+      <span className="material-icons">search</span>
       <input ref={searchRef} placeholder="Search on Google" />
     </form>
   );

@@ -13,6 +13,13 @@ const WebsitesContainer = () => {
   return (
     <div className={classes.flex}>
       <GoogleSearch />
+      <div className={classes.modal_container}>
+        <p>Saved Bookmarks</p>
+        <div className={classes.open_modal} onClick={() => setOpenModal(true)}>
+          <span className="material-icons">add</span>
+          <span>Add Website</span>
+        </div>
+      </div>
       <div className={classes.website_container}>
         {websites.map((website) => {
           return <Website key={website.uuid} website={website} />;
@@ -24,9 +31,6 @@ const WebsitesContainer = () => {
             type="ADD"
           />
         )}
-        <div onClick={() => setOpenModal(true)}>
-          <span className={`material-icons ${classes.modal}`}>add</span>
-        </div>
       </div>
     </div>
   );
