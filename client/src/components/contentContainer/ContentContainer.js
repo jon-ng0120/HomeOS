@@ -4,28 +4,43 @@ import classes from './ContentContainer.module.scss';
 import NewsGrid from '../news/NewsGrid';
 
 const ContentContainer = () => {
-  const [view, setView] = useState(<CalendarEvents />);
+  const [view, setView] = useState({
+    view: 'calendar',
+    path: <CalendarEvents />,
+  });
 
   return (
     <div className={classes.content_container}>
       <div className={classes.tabs}>
-        <div
-          data-content-type="calendar"
-          className={`material-icons ${classes.tab_option}`}
-          onClick={() => setView(<CalendarEvents />)}
+        <p
+          className={`${classes.tab_option} ${
+            view.view === 'calendar' ? classes.active : ''
+          }`}
+          onClick={() =>
+            setView({
+              view: 'calendar',
+              path: <CalendarEvents />,
+            })
+          }
         >
-          calendar_month
-        </div>
-        <div
-          data-content-type="news"
-          className={`material-icons ${classes.tab_option}`}
-          onClick={() => setView(<NewsGrid />)}
+          Calendar
+        </p>
+        <p
+          className={`${classes.tab_option} ${
+            view.view === 'news' ? classes.active : ''
+          }`}
+          onClick={() =>
+            setView({
+              view: 'news',
+              path: <NewsGrid />,
+            })
+          }
         >
-          feed
-        </div>
+          News
+        </p>
       </div>
 
-      {view}
+      {view.path}
     </div>
   );
 };

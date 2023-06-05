@@ -1,6 +1,7 @@
 @import '../../vars.css';
 
 .content_container {
+  position: relative;
   background-color: rgba(255, 255, 255, 0.6);
   display: flex;
   flex-direction: column;
@@ -27,9 +28,22 @@
 
 .tabs {
   display: flex;
+  gap: 2rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .tab_option {
-  font-size: 2.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-weight: 600;
+  font-size: 1.8rem;
   cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.active {
+  border-bottom: 2px solid var(--color-primary);
 }
