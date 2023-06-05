@@ -112,40 +112,41 @@ const NewsGrid = () => {
             );
           })}
         </ul>
-        <div>
-          <select onChange={countryChangeHandler}>
-            {countries.map((country) => {
-              return (
-                <option key={country.code} value={country.code}>
-                  {country.name}
-                </option>
-              );
-            })}
-          </select>
-        </div>
         <div className={classes.select_menu}>
           <p>Select Country</p>
-          <div className={classes.select_btn} onClick={toggleDropdown}>
-            <span>{country.name}</span>
+          <div>
+            <div className={classes.select_btn} onClick={toggleDropdown}>
+              <span>{country.name}</span>
+              <span
+                className={`material-icons ${classes.caret} ${
+                  activeDropdown && classes.caret_rotate
+                }`}
+              >
+                expand_more
+              </span>
+            </div>
+            <ul
+              ref={dropdownRef}
+              className={`${classes.options} ${
+                activeDropdown
+                  ? classes.activeDropdown
+                  : classes.hidden_dropdown
+              }`}
+            >
+              {countries.map((country) => {
+                return (
+                  <li
+                    key={country.code}
+                    onClick={countryChangeHandler}
+                    className={classes.option}
+                    data-country-code={country.code}
+                  >
+                    {country.name}
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-          <ul
-            ref={dropdownRef}
-            className={`${classes.options} ${
-              activeDropdown ? classes.activeDropdown : classes.hidden_dropdown
-            }`}
-          >
-            {countries.map((country) => {
-              return (
-                <li
-                  onClick={countryChangeHandler}
-                  className={classes.option}
-                  data-country-code={country.code}
-                >
-                  {country.name}
-                </li>
-              );
-            })}
-          </ul>
         </div>
       </div>
 
