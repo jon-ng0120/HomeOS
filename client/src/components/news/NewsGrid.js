@@ -3,7 +3,7 @@ import NewsItem from './NewsItem';
 import classes from './NewsGrid.module.scss';
 
 const NewsGrid = () => {
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef();
   const [activeDropdown, setActiveDropdown] = useState(false);
   const [category, setCategory] = useState('general');
   const [newsItems, setNewsItems] = useState([]);
@@ -96,6 +96,20 @@ const NewsGrid = () => {
     };
     getNews();
   }, [category, country]);
+
+  useEffect(() => {
+    const clickHandler = (e) => {
+      if (!dropdownRef.current.contains(e.target)) {
+        setActiveDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', clickHandler);
+
+    return () => {
+      document.removeEventListener('mousedown', clickHandler);
+    };
+  });
+
   return (
     <div className={classes.news_grid_container}>
       <div className={classes.categories_container}>
