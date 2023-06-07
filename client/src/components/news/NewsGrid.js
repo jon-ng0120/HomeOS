@@ -128,7 +128,7 @@ const NewsGrid = () => {
         </ul>
         <div className={classes.select_menu}>
           <p>Select Country</p>
-          <div>
+          <div ref={dropdownRef}>
             <div className={classes.select_btn} onClick={toggleDropdown}>
               <span>{country.name}</span>
               <span
@@ -140,7 +140,6 @@ const NewsGrid = () => {
               </span>
             </div>
             <ul
-              ref={dropdownRef}
               className={`${classes.options} ${
                 activeDropdown
                   ? classes.activeDropdown
