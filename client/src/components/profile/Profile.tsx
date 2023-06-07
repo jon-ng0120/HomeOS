@@ -27,10 +27,6 @@ const Profile = () => {
         </div>
         <div className={classes.profile_menu_actions}>
           <div>
-            <span className="material-icons">dark_mode</span>
-            <p>Switch Themes</p>
-          </div>
-          <div>
             <span className="material-icons">logout</span>
             <LogOut />
           </div>
