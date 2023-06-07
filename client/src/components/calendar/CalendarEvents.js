@@ -4,25 +4,9 @@ import CalendarEventsItem from './CalendarEventsItem';
 import { formatDate } from '../../utilities/utilities';
 import AuthContext from '../../store/auth-context';
 
-type TKeys = 'date' | 'dateTime';
-
-type EventsListProps = {
-  id: string;
-  summary: string;
-  start: { [key in TKeys]: string };
-  end: { [key in TKeys]: string };
-};
-
-type EventProp = {
-  id: string;
-  summary: string;
-  start: string;
-  end: string;
-};
-
 const CalendarEvents = () => {
-  const [events, setEvents] = useState<EventProp[]>();
-  const [uniqueEventDates, setUniqueEventDates] = useState<string[]>();
+  const [events, setEvents] = useState();
+  const [uniqueEventDates, setUniqueEventDates] = useState();
 
   const authProviderCtx = useContext(AuthContext);
 
@@ -52,7 +36,7 @@ const CalendarEvents = () => {
     );
     const data = await response.json();
 
-    const events = data.items.map((event: EventsListProps) => {
+    const events = data.items.map((event) => {
       const body = {
         id: event.id,
         summary: event.summary,
@@ -62,11 +46,11 @@ const CalendarEvents = () => {
       return body;
     });
 
-    const eventDates = events.map((event: { start: string }) => {
+    const eventDates = events.map((event) => {
       return formatDate(event.start);
     });
 
-    const uniqueDates: string[] = [...new Set(eventDates)] as string[];
+    const uniqueDates = [...new Set(eventDates)];
     setUniqueEventDates(uniqueDates);
 
     setEvents(events);

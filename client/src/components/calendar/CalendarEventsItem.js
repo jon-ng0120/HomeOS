@@ -2,17 +2,7 @@ import React from 'react';
 import { formatDate, formatTime } from '../../utilities/utilities';
 import classes from './CalendarEventsItem.module.scss';
 
-type CalendarEventsItemProps = {
-  summary: string;
-  start: string;
-  end: string;
-};
-
-const CalendarEventsItem = ({
-  summary,
-  start,
-  end,
-}: CalendarEventsItemProps) => {
+const CalendarEventsItem = ({ summary, start, end }) => {
   const startTime = formatTime(start);
   const endTime = formatTime(end);
 

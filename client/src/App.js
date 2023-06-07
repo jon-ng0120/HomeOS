@@ -11,7 +11,7 @@ function App() {
   const { openProfile, setOpenProfile, setWebsites } = authProviderCtx;
 
   useEffect(() => {
-    const setUserInfo = async (googleId: string) => {
+    const setUserInfo = async (googleId) => {
       getResponseFromServer(googleId).then((res) => {
         authProviderCtx.setAccessToken(res.accessToken);
         authProviderCtx.setProfileInfo({
@@ -25,7 +25,7 @@ function App() {
     if (getGoogleIdLocalStorage() === null) {
       handleGoogleIdFromQueryParams();
     }
-    const googleId: any = getGoogleIdLocalStorage();
+    const googleId = getGoogleIdLocalStorage();
     if (googleId !== null) {
       setUserInfo(googleId);
     }
@@ -39,7 +39,7 @@ function App() {
 
   const handleGoogleIdFromQueryParams = () => {
     const query = new URLSearchParams(window.location.search);
-    const googleId: any = query.get('id');
+    const googleId = query.get('id');
     if (googleId) {
       storeGoogleIdLocalStorage(googleId);
     }
@@ -49,7 +49,7 @@ function App() {
     return localStorage.getItem('googleId');
   };
 
-  const storeGoogleIdLocalStorage = (googleId: string) => {
+  const storeGoogleIdLocalStorage = (googleId) => {
     localStorage.setItem('googleId', googleId);
   };
 
@@ -74,7 +74,7 @@ function App() {
     }
   };
 
-  const getResponseFromServer = async (googleId: any) => {
+  const getResponseFromServer = async (googleId) => {
     // get new token from server with refresh token
     try {
       const request = await fetch('http://localhost:8080/getValidToken', {

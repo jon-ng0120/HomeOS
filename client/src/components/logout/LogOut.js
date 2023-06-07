@@ -5,7 +5,7 @@ const LogOut = () => {
   const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
 
   const logOutHandler = () => {
-    const url: any = window.location.href;
+    const url = window.location.href;
     const googleId = localStorage.getItem('googleId');
     setIsLoggedIn(!isLoggedIn);
     if (googleId !== null) {
@@ -14,7 +14,7 @@ const LogOut = () => {
     }
   };
 
-  const removeGoogleIdParams = (url: String) => {
+  const removeGoogleIdParams = (url) => {
     return url.split('?')[0];
   };
 
