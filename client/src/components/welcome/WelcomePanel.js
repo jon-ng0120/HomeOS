@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import Weather from '../weather/Weather';
 import classes from './WelcomePanel.module.scss';
+import AuthContext from '../../store/auth-context';
 
 const WelcomePanel = () => {
   const [dateTime, setDateTime] = useState({});
@@ -31,11 +32,8 @@ const WelcomePanel = () => {
   return (
     <div className={classes.welcome_panel_container}>
       <div>
-        <p className={classes.date}>{dateTime.date}</p>
         <p className={classes.time}>{dateTime.time}</p>
-        <div className={classes.greeting}>
-          <p>Welcome Jon</p>
-        </div>
+        <p className={classes.date}>{dateTime.date}</p>
       </div>
 
       <Weather />

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 import classes from './Profile.module.scss';
 import LogOut from '../logout/LogOut';
