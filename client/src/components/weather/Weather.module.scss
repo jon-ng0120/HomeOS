@@ -2,16 +2,30 @@
   font-size: 1.8rem;
   margin-top: 3rem;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  .weather_info {
+  .city_info {
+    font-size: 4rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .weather_details {
     display: flex;
     align-items: center;
   }
 
   .temperature {
-    margin: 1rem 0;
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .description {
+    font-size: 1.8rem;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 600;
   }
 }

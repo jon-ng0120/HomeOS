@@ -27,9 +27,7 @@ const CalendarEvents = () => {
   const authProviderCtx = useContext(AuthContext);
 
   const getEvents = async () => {
-    console.log('test');
     const token = authProviderCtx.accessToken;
-    console.log(token);
 
     const date = new Date();
     const formattedDate = date.toISOString();

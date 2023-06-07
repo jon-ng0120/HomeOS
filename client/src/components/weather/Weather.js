@@ -2,19 +2,8 @@ import { useState, useEffect } from 'react';
 import { roundTemperatures } from '../../utilities/utilities';
 import classes from './Weather.module.scss';
 
-type fetchWeatherProps = {
-  lat: number;
-  lon: number;
-};
-
-type weatherType = {
-  city: string;
-  weather: [{ description: string; icon: string; main: string }];
-  temperature: string;
-};
-
 const Weather = () => {
-  const [weather, setWeather] = useState<weatherType | null>();
+  const [weather, setWeather] = useState();
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -35,7 +24,7 @@ const Weather = () => {
     getUserLocation();
   }, []);
 
-  const fetchWeather = async ({ lat, lon }: fetchWeatherProps) => {
+  const fetchWeather = async ({ lat, lon }) => {
     try {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=825c62a98c0ddf6dc90d3b25d56c1adb`
@@ -43,6 +32,7 @@ const Weather = () => {
       const data = await response.json();
       setWeather({
         city: data.name,
+        country: data.sys.country,
         weather: data.weather,
         temperature: data.main.temp,
       });
@@ -54,15 +44,19 @@ const Weather = () => {
     <>
       {weather && (
         <div className={classes.weather_container}>
-          <p>{weather.city}</p>
-          <div className={classes.weather_info}>
+          <p className={classes.city_info}>
+            {weather.city}, {weather.country}
+          </p>
+          <div className={classes.weather_details}>
             <img
               src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`}
             />
-            <div className={classes.weather_details}>
-              <p>{weather.weather[0].main}</p>
+            <div>
               <p className={classes.temperature}>
-                {roundTemperatures(parseInt(weather.temperature))} &deg;
+                {roundTemperatures(parseInt(weather.temperature))} &deg;C
+              </p>
+              <p className={classes.description}>
+                {weather.weather[0].description}
               </p>
             </div>
           </div>
