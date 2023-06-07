@@ -64,7 +64,7 @@
 
         &:focus {
           outline: none !important;
-          border: 2px solid #bb86fc;
+          border: 2px solid var(--color-primary);
         }
       }
 
@@ -103,12 +103,12 @@
 
       .cancel {
         background-color: transparent;
-        border: 1px solid #9640ff;
-        color: #a357ff;
+        border: 1px solid var(--color-primary);
+        color: var(--color-primary);
       }
 
       .submit {
-        background-color: #9640ff;
+        background-color: var(--color-primary);
         color: #fff;
       }
     }
