@@ -2,16 +2,16 @@ import { useState } from 'react';
 import AuthContext from './auth-context';
 
 type UserInfoProp = {
-  email: string;
-  picture: string;
-  username: string;
+  email: string,
+  picture: string,
+  username: string,
 };
 
-const AuthProvider = (props: any) => {
+const AuthProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [accessToken, setAccessToken] = useState(null);
   const [refreshToken, setRefreshToken] = useState();
-  const [profileInfo, setProfileInfo] = useState<UserInfoProp>();
+  const [profileInfo, setProfileInfo] = useState();
   const [openProfile, setOpenProfile] = useState(false);
   const [websites, setWebsites] = useState([]);
 

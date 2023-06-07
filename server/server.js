@@ -12,11 +12,6 @@ require('dotenv').config();
 
 const DEFAULT_WEBSITES = [
   {
-    name: 'Google',
-    url: 'https://www.google.com/',
-    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=64',
-  },
-  {
     name: 'Reddit',
     url: 'https://old.reddit.com/',
     icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://reddit.com&size=64',
@@ -25,6 +20,16 @@ const DEFAULT_WEBSITES = [
     name: 'YouTube',
     url: 'https://old.reddit.com/',
     icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://youtube.com&size=64',
+  },
+  {
+    name: 'Instagram',
+    url: 'https://instagram.com/',
+    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://instagram.com&size=64',
+  },
+  {
+    name: 'Dribbble',
+    url: 'https://dribbble.com/',
+    icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://dribbble.com&size=64',
   },
 ];
 
