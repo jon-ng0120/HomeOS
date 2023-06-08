@@ -5,93 +5,11 @@ import WelcomePanel from './components/welcome/WelcomePanel';
 import AuthContext from './store/auth-context';
 import Profile from './components/profile/Profile';
 import WebsitesContainer from './components/websites/WebsitesContainer';
+import Login from './components/login/Login';
 
 function App() {
   const authProviderCtx = useContext(AuthContext);
   const { openProfile, setOpenProfile, setWebsites } = authProviderCtx;
-
-  useEffect(() => {
-    const setUserInfo = async (googleId) => {
-      getResponseFromServer(googleId).then((res) => {
-        authProviderCtx.setAccessToken(res.accessToken);
-        authProviderCtx.setProfileInfo({
-          email: res.email,
-          picture: res.picture,
-          username: res.username,
-        });
-        setWebsites(res.websites);
-      });
-    };
-    if (getGoogleIdLocalStorage() === null) {
-      handleGoogleIdFromQueryParams();
-    }
-    const googleId = getGoogleIdLocalStorage();
-    if (googleId !== null) {
-      setUserInfo(googleId);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (authProviderCtx.accessToken !== null) {
-      authProviderCtx.setIsLoggedIn(true);
-    }
-  }, [authProviderCtx.accessToken]);
-
-  const handleGoogleIdFromQueryParams = () => {
-    const query = new URLSearchParams(window.location.search);
-    const googleId = query.get('id');
-    if (googleId) {
-      storeGoogleIdLocalStorage(googleId);
-    }
-  };
-
-  const getGoogleIdLocalStorage = () => {
-    return localStorage.getItem('googleId');
-  };
-
-  const storeGoogleIdLocalStorage = (googleId) => {
-    localStorage.setItem('googleId', googleId);
-  };
-
-  const signInHandler = async () => {
-    try {
-      await createGoogleAuthLink();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const createGoogleAuthLink = async () => {
-    try {
-      const request = await fetch('http://localhost:8080/createAuthLink', {
-        method: 'POST',
-      });
-      const response = await request.json();
-      console.log('Resposne', response);
-      window.location.href = response.url;
-    } catch (error) {
-      console.log('ERROR', error);
-    }
-  };
-
-  const getResponseFromServer = async (googleId) => {
-    // get new token from server with refresh token
-    try {
-      const request = await fetch('http://localhost:8080/getValidToken', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          googleId,
-        }),
-      });
-      const response = await request.json();
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   if (authProviderCtx.isLoggedIn) {
     return (
@@ -111,7 +29,7 @@ function App() {
       </div>
     );
   } else {
-    return <button onClick={signInHandler}>Log In</button>;
+    return <Login />;
   }
 }
 
