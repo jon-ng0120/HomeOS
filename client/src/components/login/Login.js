@@ -1,5 +1,8 @@
-import { useState, useEffect, useContext } from 'react';
+import { useEffect, useContext } from 'react';
+import icon from '../../assets/icon.png';
+import googleIcon from '../../assets/google-icon.png';
 import AuthContext from '../../store/auth-context';
+import classes from './Login.module.scss';
 
 const Login = () => {
   const authProviderCtx = useContext(AuthContext);
@@ -88,10 +91,21 @@ const Login = () => {
     }
   };
   return (
-    <div>
-      <p>Welcome to HomeOS!</p>
-      <p>Your new favorite simple and customizable homepage</p>
-      <button onClick={signInHandler}>Continue with Google</button>
+    <div className={classes.login_container}>
+      <div className={classes.icon_container}>
+        <img src={icon} className={classes.icon} />
+        <p className={classes.title}>HomeOS</p>
+      </div>
+      <div className={classes.login_info}>
+        <p className={classes.welcome}>Welcome to HomeOS</p>
+        <p className={classes.welcome_details}>
+          Your new favorite simple and customizable homepage
+        </p>
+        <div className={classes.sign_in_btn} onClick={signInHandler}>
+          <img className={classes.google_icon} src={googleIcon} />
+          <p>Continue with Google</p>
+        </div>
+      </div>
     </div>
   );
 };
