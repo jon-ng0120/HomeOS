@@ -50,7 +50,7 @@ app.use('/website', websiteRouter);
 const oauth2Client = new google.auth.OAuth2(
   process.env.GOOGLE_CLIENT_ID,
   process.env.GOOGLE_CLIENT_SECRET,
-  'http://homeos.onrender.com:8080/handleGoogleRedirect' // server redirect url handler
+  'https://homeos.onrender.com/handleGoogleRedirect' // server redirect url handler
 );
 
 app.post('/createAuthLink', cors(), (req, res) => {
