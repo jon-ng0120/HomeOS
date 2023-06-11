@@ -94,7 +94,7 @@ app.get('/handleGoogleRedirect', async (req, res) => {
     });
     await user.save();
   }
-  res.redirect(`http://localhost:3000?id=${id}`);
+  res.redirect(`https://jon-ng0120.github.io/startpage?id=${id}`);
 });
 
 app.post('/getValidToken', async (req, res) => {
