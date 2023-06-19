@@ -88,10 +88,7 @@ const NewsGrid = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      // const newsResponse = await fetch(
-      //   `https://newsapi.org/v2/top-headlines?country=${country.code}&category=${category}&apiKey=023293fc74884b89b7ef26247d57463a`
-      // );
-      const newsResponse = await fetch(`http://localhost:8080/news`, {
+      const newsResponse = await fetch(`https://homeos.onrender.com/news`, {
         method: 'POST',
         headers: {
           Accept: 'application/json',
