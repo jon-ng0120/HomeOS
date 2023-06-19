@@ -64,15 +64,13 @@ const Login = () => {
 
   const createGoogleAuthLink = async () => {
     try {
-      // const request = await fetch(
-      //   'https://homeos.onrender.com/createAuthLink',
-      //   {
-      //     method: 'POST',
-      //   }
-      // );
-      const request = await fetch('http://localhost:8080/createAuthLink', {
-        method: 'POST',
-      });
+      const request = await fetch(
+        'https://homeos.onrender.com/createAuthLink',
+        {
+          method: 'POST',
+        }
+      );
+
       const response = await request.json();
       window.location.href = response.url;
     } catch (error) {
@@ -83,16 +81,7 @@ const Login = () => {
   const getResponseFromServer = async (googleId) => {
     // get new token from server with refresh token
     try {
-      // const request = await fetch('https://homeos.onrender.com/getValidToken', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({
-      //     googleId,
-      //   }),
-      // });
-      const request = await fetch('http://localhost:8080/getValidToken', {
+      const request = await fetch('https://homeos.onrender.com/getValidToken', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -101,6 +90,7 @@ const Login = () => {
           googleId,
         }),
       });
+
       const response = await request.json();
       return response;
     } catch (error) {
