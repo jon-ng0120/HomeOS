@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
-import { roundTemperatures } from '../../utilities/utilities';
+import {
+  roundTemperatures,
+  capitalizeSentence,
+} from '../../utilities/utilities';
 import classes from './Weather.module.scss';
 
 const Weather = () => {
@@ -56,7 +59,7 @@ const Weather = () => {
                 {roundTemperatures(parseInt(weather.temperature))} &deg;C
               </p>
               <p className={classes.description}>
-                {weather.weather[0].description}
+                {capitalizeSentence(weather.weather[0].description)}
               </p>
             </div>
           </div>
