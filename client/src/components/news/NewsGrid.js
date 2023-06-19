@@ -88,9 +88,20 @@ const NewsGrid = () => {
 
   useEffect(() => {
     const getNews = async () => {
-      const newsResponse = await fetch(
-        `https://newsapi.org/v2/top-headlines?country=${country.code}&category=${category}&apiKey=023293fc74884b89b7ef26247d57463a`
-      );
+      // const newsResponse = await fetch(
+      //   `https://newsapi.org/v2/top-headlines?country=${country.code}&category=${category}&apiKey=023293fc74884b89b7ef26247d57463a`
+      // );
+      const newsResponse = await fetch(`http://localhost:8080/news`, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          country: country.code,
+          category: category,
+        }),
+      });
       const data = await newsResponse.json();
       setNewsItems(data.articles);
     };
