@@ -11,6 +11,15 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
+.loading_container {
+  margin: auto;
+
+  p {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+}
+
 .icon_container {
   position: absolute;
   top: 2rem;

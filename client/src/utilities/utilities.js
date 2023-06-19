@@ -30,6 +30,13 @@ export const validation = (websiteArr, { website, url }) => {
   return errors;
 };
 
+export const capitalizeSentence = (str) => {
+  const splitStr = str.split(' ');
+  return splitStr
+    .map((word) => word.charAt(0).toUpperCase() + word.substring(1))
+    .join(' ');
+};
+
 const checkUrl = (url) => {
   try {
     new URL(url);

@@ -1,11 +1,13 @@
-import { useEffect, useContext } from 'react';
+import { useEffect, useContext, useState } from 'react';
 import icon from '../../assets/icon.png';
 import googleIcon from '../../assets/google-icon.png';
 import AuthContext from '../../store/auth-context';
 import classes from './Login.module.scss';
+import PulseLoader from 'react-spinners/PulseLoader';
 
 const Login = () => {
   const authProviderCtx = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const { openProfile, setOpenProfile, setWebsites } = authProviderCtx;
 
   useEffect(() => {
@@ -53,6 +55,7 @@ const Login = () => {
 
   const signInHandler = async () => {
     try {
+      setLoading(true);
       await createGoogleAuthLink();
     } catch (error) {
       console.log(error);
@@ -61,14 +64,16 @@ const Login = () => {
 
   const createGoogleAuthLink = async () => {
     try {
-      const request = await fetch(
-        'https://homeos.onrender.com/createAuthLink',
-        {
-          method: 'POST',
-        }
-      );
+      // const request = await fetch(
+      //   'https://homeos.onrender.com/createAuthLink',
+      //   {
+      //     method: 'POST',
+      //   }
+      // );
+      const request = await fetch('http://localhost:8080/createAuthLink', {
+        method: 'POST',
+      });
       const response = await request.json();
-      console.log('Resposne', response);
       window.location.href = response.url;
     } catch (error) {
       console.log('ERROR', error);
@@ -78,7 +83,16 @@ const Login = () => {
   const getResponseFromServer = async (googleId) => {
     // get new token from server with refresh token
     try {
-      const request = await fetch('https://homeos.onrender.com/getValidToken', {
+      // const request = await fetch('https://homeos.onrender.com/getValidToken', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     googleId,
+      //   }),
+      // });
+      const request = await fetch('http://localhost:8080/getValidToken', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,20 +109,29 @@ const Login = () => {
   };
   return (
     <div className={classes.login_container}>
-      <div className={classes.icon_container}>
-        <img src={icon} className={classes.icon} />
-        <p className={classes.title}>HomeOS</p>
-      </div>
-      <div className={classes.login_info}>
-        <p className={classes.welcome}>Welcome to HomeOS</p>
-        <p className={classes.welcome_details}>
-          Your new favorite simple and customizable homepage
-        </p>
-        <div className={classes.sign_in_btn} onClick={signInHandler}>
-          <img className={classes.google_icon} src={googleIcon} />
-          <p>Continue with Google</p>
+      {loading ? (
+        <div className={classes.loading_container}>
+          <PulseLoader color="#f36d14" />
+          <p>Loading...</p>
         </div>
-      </div>
+      ) : (
+        <>
+          <div className={classes.icon_container}>
+            <img src={icon} className={classes.icon} />
+            <p className={classes.title}>HomeOS</p>
+          </div>
+          <div className={classes.login_info}>
+            <p className={classes.welcome}>Welcome to HomeOS</p>
+            <p className={classes.welcome_details}>
+              Your new favorite simple and customizable homepage
+            </p>
+            <div className={classes.sign_in_btn} onClick={signInHandler}>
+              <img className={classes.google_icon} src={googleIcon} />
+              <p>Continue with Google</p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

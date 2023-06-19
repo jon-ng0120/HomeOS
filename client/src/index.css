@@ -18,7 +18,5 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('./assets/background.jpg');
-  background-size: cover;
-  background-position: bottom;
+  background-color: #ebebf0;
 }
