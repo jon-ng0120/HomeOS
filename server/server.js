@@ -60,7 +60,7 @@ app.post('/createAuthLink', cors(), (req, res) => {
     access_type: 'offline',
     scope: [
       //calendar api scopes
-      'hhttps://www.googleapis.com/auth/calendar.events.readonly',
+      'https://www.googleapis.com/auth/calendar',
       'email',
       'profile',
     ],
