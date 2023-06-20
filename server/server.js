@@ -61,7 +61,7 @@ app.post('/createAuthLink', cors(), (req, res) => {
     scope: [
       //calendar api scopes
       // 'https://www.googleapis.com/auth/calendar',
-      'https://www.googleapis.com/auth/calendar.events.readonly',
+      'https://www.googleapis.com/auth/calendar.readonly',
       'email',
       'profile',
     ],
