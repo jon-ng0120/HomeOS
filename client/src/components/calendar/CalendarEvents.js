@@ -61,9 +61,9 @@ const CalendarEvents = () => {
 
   return (
     <div className={classes.calendar_events_container}>
-      {uniqueEventDates?.map((date) => {
+      {uniqueEventDates.map((date) => {
         const matchingEvents = events?.filter(
-          (event: EventProp) => formatDate(event.start) == date
+          (event) => formatDate(event.start) == date
         );
         return (
           <div key={date}>
