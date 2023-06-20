@@ -1,0 +1,557 @@
+[33mcommit dfb6955a530491759e381fb30f3b8c4627f04195[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Jun 19 00:40:09 2023 -0700
+
+    Updated URL path
+
+[33mcommit 2a3ee9ee9938e73c21d029d9076a182f451fb38f[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Jun 19 00:22:41 2023 -0700
+
+    Changed URLs back to prod
+
+[33mcommit 48d7a4a8cd7386771e183c8072ff075c1dbc9367[m
+Merge: c19cd53 b0d5e64
+Author: Jonathan Ng <38772750+jon-ng0120@users.noreply.github.com>
+Date:   Mon Jun 19 00:17:19 2023 -0700
+
+    Merge pull request #1 from jon-ng0120/NewsAPI-on-backend
+    
+    News api on backend
+
+[33mcommit b0d5e64595f1c09d6ae4dea1d2a3906c2fa1ba83[m[33m ([m[1;31morigin/NewsAPI-on-backend[m[33m, [m[1;32mNewsAPI-on-backend[m[33m)[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Jun 19 00:16:32 2023 -0700
+
+    Changed theme to purple
+
+[33mcommit 74a0ef2f150209182ca8ce3066f2d5f0141103d1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Jun 18 23:10:12 2023 -0700
+
+    Changed logic to calls newsAPI from Express backend
+
+[33mcommit 44f4fe249f7005abc8caa77c1d0d8dc2676c5c25[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Jun 18 16:23:20 2023 -0700
+
+    New branch
+
+[33mcommit c19cd5333c9e2773a1f5527a49cd8ca706499e11[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Jun 11 02:00:57 2023 -0700
+
+    updated http link
+
+[33mcommit 07db9e7dfcf16b08432143f0ee1e9740cec26158[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Jun 11 01:14:22 2023 -0700
+
+    updated link path
+
+[33mcommit daeff5c8ebb961da50a0b54cd062f6f2350c4d0b[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Jun 9 00:35:48 2023 -0700
+
+    updated http link
+
+[33mcommit 86d8034ca64be20d3f14453aba5777f4ca230e62[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Jun 9 00:30:27 2023 -0700
+
+    updated http link
+
+[33mcommit db625a5b62cbaffd68da223255363a14f61b4240[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Jun 9 00:21:59 2023 -0700
+
+    updated http links
+
+[33mcommit dfaa0027a6b7bfa3e5e9423e0d7a11434a08eabe[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Jun 9 00:17:24 2023 -0700
+
+    updated http request links
+
+[33mcommit 294aa6cd416f22b0c59522d66464397022eef012[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Jun 8 00:33:09 2023 -0700
+
+    Added styling
+
+[33mcommit 3fd7d2198a5ee0f31df866058463bd2a60e33e04[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Jun 7 23:20:29 2023 -0700
+
+    moved login logic to its own component
+
+[33mcommit 93eecb9b90e3b8f6f0b640e1d4b9ce74664fa162[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Jun 7 00:19:40 2023 -0700
+
+    updated title
+
+[33mcommit d974144e4ed2c3c94a5bf3c9e1dea441643161b8[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Jun 7 00:08:46 2023 -0700
+
+    Updated title
+
+[33mcommit 05b0cdf49b7b1a7550825363928fce2fc47c0091[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Jun 7 00:07:34 2023 -0700
+
+    removed typescript
+
+[33mcommit b1631286f08a383983fa478b7fb1008d5ef9cedf[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 23:59:49 2023 -0700
+
+    removed typescript
+
+[33mcommit 6cefc58e2b7a9e28435b522290311812fd6ef1c7[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 23:40:54 2023 -0700
+
+    changed font size
+
+[33mcommit 5f902ca5bb8cc34dd07ecda892fecc6f491b327a[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 19:38:33 2023 -0700
+
+    removed greeting
+
+[33mcommit b8828e249b3cde676f55326455b7094a838d0cb5[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 19:16:57 2023 -0700
+
+    increased font and opacity
+
+[33mcommit e8a446b868f441fc3e8e7e0118c32d6f3af2a5d3[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 19:15:22 2023 -0700
+
+    changed to use color variable
+
+[33mcommit 7cd90b30f71b657a646f595542d15b84861008a1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 19:13:50 2023 -0700
+
+    removed switch theme option
+
+[33mcommit 6506c06f94b2200142b86e1aace1f4f02d498bdd[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 19:11:38 2023 -0700
+
+    changed theme to orange
+
+[33mcommit 8a52fd18f60f3d2042180a4893d54c8fcdc98f6a[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Jun 6 01:10:47 2023 -0700
+
+    Close dropdown when click outside
+
+[33mcommit bc027485aff433e55fa35bf524594642245cb096[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Jun 5 01:09:48 2023 -0700
+
+    changed content tabs to text
+
+[33mcommit 61d0a68c6a199c217f6d5e0e57f6fb596d4d1734[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Jun 4 22:10:17 2023 -0700
+
+    added a rotating caret
+
+[33mcommit cfd300c90e774034855cb62eaf68f0bc0be0c205[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Jun 2 01:19:50 2023 -0700
+
+    Added custom toggleable country dropdown
+
+[33mcommit b83a0b1f2baaa48af20499177409415e1eb34d21[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 31 00:16:59 2023 -0700
+
+    Added close button
+
+[33mcommit 3a528545ee46bc184ebf087d96c4c1def7e347c6[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 31 00:11:49 2023 -0700
+
+    Changed to light theme
+
+[33mcommit 1051d037a05317c3f281a6ec246e25667adfc723[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 29 22:37:58 2023 -0700
+
+    Changed to light theme
+
+[33mcommit d115a5394205d6c523432ad33233526b0fd96abc[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun May 28 19:19:29 2023 -0700
+
+    Focus on input on form click
+
+[33mcommit 66817b3b5406e782daf4813b5e5f0f7698019d09[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sat May 27 01:36:22 2023 -0700
+
+    Styled the google search bar and changed the right container to be flex display
+
+[33mcommit 788ce53ec8c87622c29b77ccc52aebaae3a47459[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 25 23:15:26 2023 -0700
+
+    Search queries in google
+
+[33mcommit 137ef18e16c3da236220cf22f45c128eb304cea5[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 25 22:46:31 2023 -0700
+
+    Added extra gap and decreased height
+
+[33mcommit 2808907b8082d39f7ffbc41cf692376c19e140dd[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 24 23:56:28 2023 -0700
+
+    Vertical align the app
+
+[33mcommit a13fc8587360a4e50086e75a6b222bea6165d783[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 24 00:20:53 2023 -0700
+
+    added custom scrollbar
+
+[33mcommit 77073458bcd84273997fa46f8df0030f2f89e5e1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 22 22:32:15 2023 -0700
+
+    flip between calendar and news tabs
+
+[33mcommit 0af19e18f862df916adc57206eb378a0653d10c0[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 22 00:44:52 2023 -0700
+
+    Added ease in transition
+
+[33mcommit ee3d89012a2ed551dececd3944d32f283f6dfa56[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun May 21 02:55:24 2023 -0700
+
+    changed views to be side by side and news item to be in list format
+
+[33mcommit 88e5cdd94423f8e8a370303bc0cb8b47ade0a806[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun May 21 00:58:01 2023 -0700
+
+    Added no image found if image url is not available
+
+[33mcommit 6d3526493aea323226e67e8423d384f9e69a1202[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri May 19 00:04:47 2023 -0700
+
+    Changed newsItem key to be article title and load different news based on selected country
+
+[33mcommit 9d8ce7be154ce117c50bc6060727663f93e3a9d3[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 17 23:57:08 2023 -0700
+
+    Added feature to views articles based on categories
+
+[33mcommit 0d98e93eda481b39e57d3e3e73001a54dcc91034[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 17 00:54:26 2023 -0700
+
+    added news component
+
+[33mcommit 8692a233cec6e9276cff098c3da4c74082ac93be[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sat May 13 23:49:38 2023 -0700
+
+    Increased height and added opacity to the text
+
+[33mcommit 924922cf70f67254f284deeab17358744c7d245b[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri May 12 00:15:52 2023 -0700
+
+    fixed issue where the edit website icons wouldn't save to DB
+
+[33mcommit 46d2375ef9884aee8be2e638fc94ad36700b1769[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri May 12 00:04:39 2023 -0700
+
+    Conditionally change button text based on modal type
+
+[33mcommit 1e58908571b873a3db3afd72fe9b4d22f7352427[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri May 12 00:02:40 2023 -0700
+
+    fixed issue where edits couldn't save because the website name was the same
+
+[33mcommit f06b4f6bfaa7a473a47bcc598c1daf3afaa07cf4[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 11 23:24:04 2023 -0700
+
+    edits to website details are saved to db
+
+[33mcommit 559cb4f6df337e92a577180f0e08f3c56dfe4fa1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 11 22:45:29 2023 -0700
+
+    modify items on state
+
+[33mcommit 2ca4793fb320d87a615ad7ff964ecb152a52eed3[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 11 22:31:12 2023 -0700
+
+    Created unique identified using crypto uuid function
+
+[33mcommit 273bddac9a7cff3ffddd3e13157b1c028121affe[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 10 00:12:34 2023 -0700
+
+    ability to open website modal
+
+[33mcommit a38f7295904bc0da43450e92ce31ca3aa84a2519[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue May 9 00:55:42 2023 -0700
+
+    Added logic to prevent duplicate entries, push createdTime to db, and create key based off of createdTime
+
+[33mcommit 76e64b59624df2b42e5c9f77e93a61522c5f2dce[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 8 01:16:25 2023 -0700
+
+    added logic to remove websites from MongoDB
+
+[33mcommit 8cdb7ee1f1bcd5b94965b1c7226d48311592a2b1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun May 7 02:32:50 2023 -0700
+
+    Added logic to delete websites from state
+
+[33mcommit 3d94d3e1882536fdd49fc7e109231d09649a69cf[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 4 21:48:18 2023 -0700
+
+    added absolute position and fixed in proper place
+
+[33mcommit 8f9f1743521987b66f35e40277e289dbd01f03a8[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu May 4 00:30:48 2023 -0700
+
+    added onclick handler to open more options menu
+
+[33mcommit 4cc532629d97170e2d0df9da5e93bd1e9c20f67c[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 3 23:30:33 2023 -0700
+
+    changed to flex display
+
+[33mcommit 496915c8c8a34958b972991a7613dd632ab08b4b[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed May 3 00:28:49 2023 -0700
+
+    added vertical more options menu
+
+[33mcommit ce69b39a56f6bd0b5a504d53fce74efdf68e4e56[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 1 17:30:42 2023 -0700
+
+    Changed to get key form current time if website id not available
+
+[33mcommit d2c5bca7a762c3cbfd2f023a3e021a7451d53955[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 1 17:30:14 2023 -0700
+
+    Removed debugging message
+
+[33mcommit 7c2b883d5689ff7120b4eaa18dade93f4d0b2f82[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 1 17:10:19 2023 -0700
+
+    changed to use the google api to get the icon
+
+[33mcommit 3437c9f81b59177dc764f95ca7f3eea3d2b1a192[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 1 17:01:02 2023 -0700
+
+    Added validation error handling
+
+[33mcommit a63072321cdee387a502786f211de47104e6ed2e[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon May 1 17:00:41 2023 -0700
+
+    Added validation logic for adding websites
+
+[33mcommit a38741f012a856888a49904cce05f0256700c51b[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Apr 30 01:48:10 2023 -0700
+
+    added error handling styling
+
+[33mcommit e942ff0062279b013b5cdb1b6fa8d28a7dca57af[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Apr 28 00:22:11 2023 -0700
+
+    fixed website object name so it shows up in state
+
+[33mcommit ede34927a1511b4bfc8d82ba8afb581e160fae9e[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Fri Apr 28 00:13:59 2023 -0700
+
+    Icon creation on the client side
+
+[33mcommit 7d96c008ee1a8730243fdaac1ab6eb753df665aa[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Apr 27 23:26:43 2023 -0700
+
+    saved websites in state instead
+
+[33mcommit e49c23a617ff0e9718488b476eb942fa9c441b55[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Apr 27 22:22:23 2023 -0700
+
+    Added logic to push website form to DB
+
+[33mcommit 2597fc51d2aa118c2458d27ceff6f99473ffa67f[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Apr 27 22:21:55 2023 -0700
+
+    increased card width and column gap
+
+[33mcommit f83db25eee3c57a8dee5f644f6a9f719be092a6f[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Apr 27 22:20:49 2023 -0700
+
+    Removed unneeded styling
+
+[33mcommit 7486b65cb759760b0cfad6f0beb39555af1c0b7b[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Apr 25 00:05:25 2023 -0700
+
+    removed the given name and family name as required options
+
+[33mcommit fbf72e4c6fbd568f4acb44af37a3e070262352f7[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 24 23:59:41 2023 -0700
+
+    changed to dark background
+
+[33mcommit 13eb9ecb17a27f0a333a57a2eba465cc5dbbe5fc[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 24 23:46:31 2023 -0700
+
+    added url icon as part of schema
+
+[33mcommit ca5b51b0ee89d48cc433df86bff5d3a9ec743e17[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Apr 23 23:40:50 2023 -0700
+
+    retrieving websites from MongoDB
+
+[33mcommit 8b147c0f1039aa507c8d10b36b5ee8f025781494[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Apr 23 23:40:28 2023 -0700
+
+    Added websites to the schema
+
+[33mcommit 834725069e4332e5f5c79627d1c0e1f6fa9de9de[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Apr 23 02:01:56 2023 -0700
+
+    Added overlay modal
+
+[33mcommit 3d26ea5125d3cd8cc0898493f4954fab3f5fdbed[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Thu Apr 20 00:04:11 2023 -0700
+
+    created the initial layout
+
+[33mcommit f13d08e9333d278e3774a8311b4b6bed04e762a4[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 17 22:07:14 2023 -0700
+
+    changed to flex row
+
+[33mcommit 1efb0bb0bff727e9b0b96738e919df39978eb6b1[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 17 22:03:23 2023 -0700
+
+    Added bookmarks styling
+
+[33mcommit b4c61046a3c7878cf869575d35b6cf948d586341[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 17 19:36:35 2023 -0700
+
+    added profile dropdown styling
+
+[33mcommit 21c5039e2464a173d6c8fd51aab6aa1038fb60ff[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 17 02:17:56 2023 -0700
+
+    toggle profile menu
+
+[33mcommit 5165909578147d86b1294c9a2f461e70cabffa3e[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 10 22:06:13 2023 -0700
+
+    Renamed auth provider and added logout
+
+[33mcommit 43b75f8a4734a998a843b427e8995a9d4470c668[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 10 01:19:49 2023 -0700
+
+    removed debugging console logs
+
+[33mcommit 3d5ccb9d2e69edc2f88ce1ef85387f9605aeea5f[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Mon Apr 10 01:11:44 2023 -0700
+
+    Added persistent login
+
+[33mcommit 0e2456c64b1b56980974cad3dc0500523b8ccd84[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Apr 9 00:56:46 2023 -0700
+
+    added backend
+
+[33mcommit 3ad807ba5e6263e537b23edfc87fb41a9b534106[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Feb 22 22:58:21 2023 -0800
+
+    Retrieved access token from Firebase
+
+[33mcommit 9fdd28ae4aab8e7101a7f63b3bc4ae513789cc60[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Feb 7 23:35:13 2023 -0800
+
+    Added styling and time formatting
+
+[33mcommit 8fc632520393ed313c90b0dd7df5edc1c2115923[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Tue Feb 7 01:10:14 2023 -0800
+
+    Listed events out and categorized by the day
+
+[33mcommit ce656b4c4f1b4b0106b8686224a61f7da68ae3e9[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Sun Feb 5 23:43:57 2023 -0800
+
+    added typescript checking and list unique dates
+
+[33mcommit f8d9258635cb8ab866c23d1812c7f44992b7779e[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Feb 1 22:39:25 2023 -0800
+
+    added props
+
+[33mcommit 81cf42805c5a221f1611f1c798c0e3fe95af3cb4[m
+Author: Jon Ng <jonathanng15@gmail.com>
+Date:   Wed Feb 1 00:48:16 2023 -0800
+
+    Added typescript checks
+
+[33mcommit a074e320b62361d69e4f9564afdae71d3dd9cc66[m
+Author: Jon Ng <jonathanng15@gmail.
