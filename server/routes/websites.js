@@ -4,6 +4,7 @@ const User = require('../models/user');
 
 router.post('/create', async (req, res, next) => {
   const { googleId, uuid, name, url, icon } = req.body;
+  console.log(googleId);
   try {
     const doc = await User.findOne({ google_id: googleId });
     doc.websites.push({

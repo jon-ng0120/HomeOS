@@ -35,7 +35,6 @@ const CalendarEvents = () => {
       }
     );
     const data = await response.json();
-    console.log(data);
     const events = data.items.map((event) => {
       const body = {
         id: event.id,

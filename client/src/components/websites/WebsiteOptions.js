@@ -6,7 +6,7 @@ import AddWebsiteModal from './WebsiteModal';
 const WebsiteOptions = ({ website, closeModalHandler }) => {
   const [openModal, setOpenModal] = useState(false);
   const authProviderCtx = useContext(AuthContext);
-  const { setWebsites, websites } = authProviderCtx;
+  const { setWebsites, profileInfo } = authProviderCtx;
 
   const editModalHandler = () => {
     setOpenModal(true);
@@ -16,7 +16,7 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
     setWebsites((currentSites) =>
       currentSites.filter((data) => data.name != website.name)
     );
-    const googleId = localStorage.getItem('googleId');
+    const googleId = profileInfo.googleId;
 
     const websiteObj = {
       googleId,

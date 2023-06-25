@@ -14,12 +14,12 @@ require('dotenv').config();
 const DEFAULT_WEBSITES = [
   {
     name: 'Reddit',
-    url: 'https://old.reddit.com/',
+    url: 'https://reddit.com/',
     icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://reddit.com&size=64',
   },
   {
     name: 'YouTube',
-    url: 'https://old.reddit.com/',
+    url: 'https://www.youtube.com/',
     icon: 'https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://youtube.com&size=64',
   },
   {
@@ -95,6 +95,9 @@ app.get('/handleGoogleRedirect', async (req, res) => {
       refresh_token: tokens.refresh_token,
     });
     await user.save();
+  } else {
+    userExist.refresh_token = tokens.refresh_token;
+    await userExist.save();
   }
   res.redirect(`https://jon-ng0120.github.io/startpage?id=${id}`);
 });

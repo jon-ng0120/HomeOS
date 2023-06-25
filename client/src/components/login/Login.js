@@ -4,13 +4,16 @@ import googleIcon from '../../assets/google-icon.png';
 import AuthContext from '../../store/auth-context';
 import classes from './Login.module.scss';
 import PulseLoader from 'react-spinners/PulseLoader';
+import SampleLoginTooltip from './SampleLoginTooltip';
 
 const Login = () => {
   const authProviderCtx = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
-  const { openProfile, setOpenProfile, setWebsites } = authProviderCtx;
+  const { setWebsites } = authProviderCtx;
 
   useEffect(() => {
+    const googleId = handleGoogleIdFromQueryParams();
+
     const setUserInfo = async (googleId) => {
       getResponseFromServer(googleId).then((res) => {
         authProviderCtx.setAccessToken(res.accessToken);
@@ -18,17 +21,12 @@ const Login = () => {
           email: res.email,
           picture: res.picture,
           username: res.username,
+          googleId: googleId,
         });
         setWebsites(res.websites);
       });
     };
-    if (getGoogleIdLocalStorage() === null) {
-      handleGoogleIdFromQueryParams();
-    }
-    const googleId = getGoogleIdLocalStorage();
-    if (googleId !== null) {
-      setUserInfo(googleId);
-    }
+    setUserInfo(googleId);
   }, []);
 
   useEffect(() => {
@@ -40,17 +38,7 @@ const Login = () => {
   const handleGoogleIdFromQueryParams = () => {
     const query = new URLSearchParams(window.location.search);
     const googleId = query.get('id');
-    if (googleId) {
-      storeGoogleIdLocalStorage(googleId);
-    }
-  };
-
-  const getGoogleIdLocalStorage = () => {
-    return localStorage.getItem('googleId');
-  };
-
-  const storeGoogleIdLocalStorage = (googleId) => {
-    localStorage.setItem('googleId', googleId);
+    return googleId;
   };
 
   const signInHandler = async () => {
@@ -119,6 +107,7 @@ const Login = () => {
               <img className={classes.google_icon} src={googleIcon} />
               <p>Continue with Google</p>
             </div>
+            <SampleLoginTooltip />
           </div>
         </>
       )}

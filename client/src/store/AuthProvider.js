@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import AuthContext from './auth-context';
 
-type UserInfoProp = {
-  email: string,
-  picture: string,
-  username: string,
-};
-
 const AuthProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState();
   const [accessToken, setAccessToken] = useState(null);

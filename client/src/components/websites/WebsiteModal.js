@@ -5,10 +5,10 @@ import { validation, extractWebsiteDomain } from '../../utilities/utilities';
 
 const WebsiteModal = ({ websiteObj, closeModal, type }) => {
   const authProviderCtx = useContext(AuthContext);
-  const { websites, setWebsites } = authProviderCtx;
+  const { websites, setWebsites, profileInfo } = authProviderCtx;
   const initialRender = useRef(true);
 
-  const googleId = localStorage.getItem('googleId');
+  const googleId = profileInfo.googleId;
 
   const [values, setValues] = useState({
     website: websiteObj.website,

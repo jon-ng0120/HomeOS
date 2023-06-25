@@ -2,16 +2,12 @@ import { useContext } from 'react';
 import AuthContext from '../../store/auth-context';
 
 const LogOut = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const logOutHandler = () => {
     const url = window.location.href;
-    const googleId = localStorage.getItem('googleId');
-    setIsLoggedIn(!isLoggedIn);
-    if (googleId !== null) {
-      localStorage.removeItem('googleId');
-      window.location.href = removeGoogleIdParams(url);
-    }
+    setIsLoggedIn(false);
+    window.location.href = removeGoogleIdParams(url);
   };
 
   const removeGoogleIdParams = (url) => {
