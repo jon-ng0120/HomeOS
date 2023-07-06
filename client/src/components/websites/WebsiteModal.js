@@ -38,7 +38,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
       url: values.url,
       icon: `https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://${websiteDomain}&size=64`,
     };
-    const res = await fetch('http://localhost:8080/website/create', {
+    const res = await fetch('https://homeos.onrender.com/website/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const WebsiteModal = ({ websiteObj, closeModal, type }) => {
       return website;
     });
 
-    const res = await fetch('http://localhost:8080/website/update', {
+    const res = await fetch('https://homeos.onrender.com/website/update', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

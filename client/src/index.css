@@ -15,8 +15,8 @@ body {
   font-family: 'Rubik', sans-serif;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
   background-color: #ebebf0;
 }
