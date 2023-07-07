@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/startpage/static/css/main.5dbc0cd0.css",
-    "main.js": "/startpage/static/js/main.b8de640b.js",
+    "main.css": "/startpage/static/css/main.98a29324.css",
+    "main.js": "/startpage/static/js/main.0f1e0c5c.js",
     "static/media/news.png": "/startpage/static/media/news.8f4b8b1d8465e5e70549.png",
     "static/media/overview.png": "/startpage/static/media/overview.f0b5ae3521c00f4c5283.png",
     "static/media/calendar.png": "/startpage/static/media/calendar.74516f0cc151d40ea8b5.png",
+    "static/media/bookmarks.png": "/startpage/static/media/bookmarks.3e6db8f4e19b10dd2145.png",
     "static/media/icon.png": "/startpage/static/media/icon.fa5594efbe97de4c2cab.png",
     "static/media/google-icon.png": "/startpage/static/media/google-icon.4e4e29450907975f4c9f.png",
     "static/media/image-not-found.png": "/startpage/static/media/image-not-found.e1ce751ef1b590f719f9.png",
     "index.html": "/startpage/index.html",
-    "main.5dbc0cd0.css.map": "/startpage/static/css/main.5dbc0cd0.css.map",
-    "main.b8de640b.js.map": "/startpage/static/js/main.b8de640b.js.map"
+    "static/media/wave.svg": "/startpage/static/media/wave.9b9d8ff2d648a3df40ae.svg",
+    "main.98a29324.css.map": "/startpage/static/css/main.98a29324.css.map",
+    "main.0f1e0c5c.js.map": "/startpage/static/js/main.0f1e0c5c.js.map"
   },
   "entrypoints": [
-    "static/css/main.5dbc0cd0.css",
-    "static/js/main.b8de640b.js"
+    "static/css/main.98a29324.css",
+    "static/js/main.0f1e0c5c.js"
   ]
 }
