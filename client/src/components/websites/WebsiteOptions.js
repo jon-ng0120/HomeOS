@@ -22,7 +22,7 @@ const WebsiteOptions = ({ website, closeModalHandler }) => {
       googleId,
       uuid: website.uuid,
     };
-    await fetch('http://localhost:8080/website/delete', {
+    await fetch('https://homeos.onrender.com/website/delete', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

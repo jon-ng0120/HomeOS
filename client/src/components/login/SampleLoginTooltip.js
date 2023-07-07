@@ -10,11 +10,11 @@ const SampleLoginTooltip = () => {
 
       <div className={classes.email}>
         <p>Email:</p>
-        <p>john.smith01201996@gmail.com</p>
+        <p>homeostester@gmail.com</p>
       </div>
       <div className={classes.password}>
         <p>Password:</p>
-        <p>Test123567890!</p>
+        <p>Admin123!</p>
       </div>
     </div>
   );

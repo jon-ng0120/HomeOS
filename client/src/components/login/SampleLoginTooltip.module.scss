@@ -1,9 +1,9 @@
 .tool_tip {
-  background-color: #383840;
+  background-color: #46465f;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   text-align: left;
-  position: absolute;
-  bottom: -16.5rem;
+  position: relative;
+  // bottom: -16.5rem;
   padding: 2rem;
   border-radius: 5px;
   color: #f5f5fa;
@@ -31,7 +31,7 @@
     top: -7px;
     height: 25px;
     width: 10px;
-    background-color: #383840;
+    background-color: #46465f;
     transform: rotate(45deg);
   }
 }

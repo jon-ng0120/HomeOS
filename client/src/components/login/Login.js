@@ -8,6 +8,7 @@ import SampleLoginTooltip from './SampleLoginTooltip';
 import overview from '../../assets/overview.png';
 import calendar from '../../assets/calendar.png';
 import news from '../../assets/news.png';
+import bookmarks from '../../assets/bookmarks.png';
 
 const Login = () => {
   const authProviderCtx = useContext(AuthContext);
@@ -97,16 +98,21 @@ const Login = () => {
       {loading ? (
         <div className={classes.loading_container}>
           <PulseLoader color="#f36d14" />
-          <p>Loading...</p>
+          <p>Loading, please wait a moment...</p>
+          <p>You will be redirected to Google sign in shortly</p>
         </div>
       ) : (
         <>
           <div className={classes.details}>
             <div>
               <div className={classes.login_info}>
-                <h1 className={classes.welcome}>Welcome to HomeOS</h1>
+                <h1 className={classes.welcome}>
+                  Your <span className={classes.accent}>All-in-One</span>{' '}
+                  Homepage Dashboard
+                </h1>
                 <p className={classes.welcome_details}>
-                  Your new favorite simple and customizable homepage
+                  Your new favorite simple and customizable homepage. A
+                  lightweight and easy to use dashboard for all your daily needs
                 </p>
                 <div className={classes.sign_in_btn} onClick={signInHandler}>
                   <img className={classes.google_icon} src={googleIcon} />
@@ -118,12 +124,13 @@ const Login = () => {
                 <img src={overview} />
               </div>
             </div>
-            <div>
+            <div className={classes.odd}>
               <div>
                 <h2>Google Calendar Integration</h2>
-                <p>
-                  Never forget any appointment. Connect your Google calendar to
-                  see your upcoming events and tasks for the month
+                <p className={classes.detail}>
+                  Never forget any appointments again. HomeOS will connect to
+                  your Google calendar so you can see all your upcoming events
+                  and tasks for the month.
                 </p>
               </div>
               <div className={classes.imageContainer}>
@@ -133,26 +140,28 @@ const Login = () => {
             <div>
               <div>
                 <h2>Global News Highlights</h2>
-                <p>
-                  Stay up to date with the latest news from around the world
-                  with the ability to filter news through 7 categories, and from
-                  over 50 countries
+                <p className={classes.detail}>
+                  Stay up to date with the latest news from around the world.
+                  With over 50 countries to select trending news stories from,
+                  as well as being able to filter for specific news categories.
                 </p>
               </div>
               <div className={classes.imageContainer}>
                 <img src={news} />
               </div>
             </div>
-            <div>
+            <div className={classes.odd}>
               <div>
                 <h2>Customizable Bookmarks</h2>
-                <p>
+                <p className={classes.detail}>
                   Create a list of your favorite websites and save them in your
-                  bookmarked section.
+                  bookmarked section. You can update and delete these as needed
+                  and HomeOS will take care of adding the website's icon for
+                  you.
                 </p>
               </div>
               <div className={classes.imageContainer}>
-                <img src={news} />
+                <img src={bookmarks} />
               </div>
             </div>
           </div>
