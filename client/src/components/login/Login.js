@@ -6,6 +6,7 @@ import classes from './Login.module.scss';
 import PulseLoader from 'react-spinners/PulseLoader';
 import SampleLoginTooltip from './SampleLoginTooltip';
 import overview from '../../assets/overview.png';
+import demoVideo from '../../assets/homeosdemo.mp4';
 import calendar from '../../assets/calendar.png';
 import news from '../../assets/news.png';
 import bookmarks from '../../assets/bookmarks.png';
@@ -120,8 +121,10 @@ const Login = () => {
                 </div>
                 <SampleLoginTooltip />
               </div>
-              <div className={classes.imageContainer}>
-                <img src={overview} />
+              <div className={`${classes.playerContainer}`}>
+                <video poster={overview} controls>
+                  <source src={demoVideo} type="video/mp4" />
+                </video>
               </div>
             </div>
             <div className={classes.odd}>
