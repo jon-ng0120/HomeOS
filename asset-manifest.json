@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/startpage/static/css/main.18535d6e.css",
-    "main.js": "/startpage/static/js/main.8df28db8.js",
-    "static/media/homeosdemo.mp4": "/startpage/static/media/homeosdemo.e7a1331c4a1469a9bd79.mp4",
-    "static/media/news.png": "/startpage/static/media/news.8f4b8b1d8465e5e70549.png",
-    "static/media/overview.png": "/startpage/static/media/overview.6291ee3ea45ae588e6ac.png",
-    "static/media/calendar.png": "/startpage/static/media/calendar.74516f0cc151d40ea8b5.png",
-    "static/media/bookmarks.png": "/startpage/static/media/bookmarks.3e6db8f4e19b10dd2145.png",
-    "static/media/icon.png": "/startpage/static/media/icon.fa5594efbe97de4c2cab.png",
-    "static/media/google-icon.png": "/startpage/static/media/google-icon.4e4e29450907975f4c9f.png",
-    "static/media/image-not-found.png": "/startpage/static/media/image-not-found.e1ce751ef1b590f719f9.png",
-    "index.html": "/startpage/index.html",
-    "static/media/wave.svg": "/startpage/static/media/wave.2252c0cae1892534e981.svg",
-    "main.18535d6e.css.map": "/startpage/static/css/main.18535d6e.css.map",
-    "main.8df28db8.js.map": "/startpage/static/js/main.8df28db8.js.map"
+    "main.css": "/HomeOS/static/css/main.3bf15cac.css",
+    "main.js": "/HomeOS/static/js/main.8e569afb.js",
+    "static/media/homeosdemo.mp4": "/HomeOS/static/media/homeosdemo.e7a1331c4a1469a9bd79.mp4",
+    "static/media/news.png": "/HomeOS/static/media/news.8f4b8b1d8465e5e70549.png",
+    "static/media/overview.png": "/HomeOS/static/media/overview.6291ee3ea45ae588e6ac.png",
+    "static/media/calendar.png": "/HomeOS/static/media/calendar.74516f0cc151d40ea8b5.png",
+    "static/media/bookmarks.png": "/HomeOS/static/media/bookmarks.3e6db8f4e19b10dd2145.png",
+    "static/media/icon.png": "/HomeOS/static/media/icon.fa5594efbe97de4c2cab.png",
+    "static/media/google-icon.png": "/HomeOS/static/media/google-icon.4e4e29450907975f4c9f.png",
+    "static/media/image-not-found.png": "/HomeOS/static/media/image-not-found.e1ce751ef1b590f719f9.png",
+    "index.html": "/HomeOS/index.html",
+    "static/media/wave.svg": "/HomeOS/static/media/wave.2252c0cae1892534e981.svg",
+    "main.3bf15cac.css.map": "/HomeOS/static/css/main.3bf15cac.css.map",
+    "main.8e569afb.js.map": "/HomeOS/static/js/main.8e569afb.js.map"
   },
   "entrypoints": [
-    "static/css/main.18535d6e.css",
-    "static/js/main.8df28db8.js"
+    "static/css/main.3bf15cac.css",
+    "static/js/main.8e569afb.js"
   ]
 }
