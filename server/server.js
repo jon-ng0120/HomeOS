@@ -99,7 +99,7 @@ app.get('/handleGoogleRedirect', async (req, res) => {
     userExist.refresh_token = tokens.refresh_token;
     await userExist.save();
   }
-  res.redirect(`https://jon-ng0120.github.io/startpage?id=${id}`);
+  res.redirect(`https://jon-ng0120.github.io/HomeOS?id=${id}`);
 });
 
 app.post('/getValidToken', async (req, res) => {
